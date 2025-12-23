@@ -1,0 +1,229 @@
+/* CSS Variables for Light and Dark Mode */
+:root {
+  --bg-color: #ffffff;
+  --text-color: #000000;
+  --sub-bg: #f9f9f9;
+  --shadow-color: rgba(0, 0, 0, 0.1);
+  --icon-color: #000000;
+  --footer-bg: #f9f9f9;
+  --footer-text: #555;
+}
+
+body.dark-mode {
+  --bg-color: #000000;
+  --text-color: #ffffff;
+  --sub-bg: #111111;
+  --shadow-color: rgba(255, 255, 255, 0.1);
+  --icon-color: #ffffff;
+  --footer-bg: #111111;
+  --footer-text: #aaa;
+}
+
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Page wrapper */
+.page {
+  background: var(--bg-color);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 160px;
+  padding-bottom: 40px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+/* Theme Toggle Button */
+#theme-toggle {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  z-index: 2000;
+  padding: 10px 12px;
+  cursor: pointer;
+  border: none;
+  border-radius: 50%;
+  background-color: #ffb347;
+  color: #000;
+  font-size: 1.2rem;
+  transition: all 0.3s;
+}
+
+#theme-toggle:hover {
+  transform: scale(1.1);
+}
+
+
+/* Logo (fixed) */
+ .site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 140px;
+  background-color: var(--bg-color);
+  z-index: 1000;
+  display: flex;
+  justify-content: center; /* Centers the logo */
+  align-items: center;
+  box-shadow: 0 2px 10px var(--shadow-color);
+}
+
+.main-logo {
+  max-height: 100px; /* Adjust based on your design */
+  width: auto;
+  display: block;
+}
+
+/* GIF image styling */
+.gif-section {
+  width: 100%;
+  max-width: 800px;
+  height: auto;
+  display: block;
+  margin: 0 auto 30px;
+}
+
+/* Content wrapper */
+.wrapper {
+  width: 100%;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  opacity: 0;
+  animation: fadeIn 1.5s forwards;
+  color: var(--text-color);
+}
+
+/* Heading */
+.coming-soon {
+  font-size: clamp(2.5rem, 8vw, 5rem);
+  font-weight: 900;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--text-color);
+}
+
+/* Gradient text */
+.coming-soon span {
+  background: linear-gradient(120deg, #ff4d8d, #ffb347, #4dd2ff);
+  background-size: 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradientMove 4s linear infinite;
+  text-shadow: 2px 2px 6px var(--shadow-color);
+}
+
+/* Social Icons */
+.icons {
+  margin-top: 30px;
+}
+
+.icons a {
+  color: var(--icon-color);
+  margin: 0 12px;
+  font-size: 1.5rem;
+  transition: transform 0.3s, color 0.3s;
+}
+
+.icons a:hover {
+  color: #ffb347;
+  transform: scale(1.2);
+}
+
+/* Location Section */
+.location-section {
+  width: 100%;
+  max-width: 600px;
+  padding: 20px;
+  margin-top: 40px;
+  background-color: var(--sub-bg);
+  border-radius: 10px;
+  color: var(--text-color);
+  text-align: center;
+  font-family: Arial, sans-serif;
+  box-shadow: 0 0 10px var(--shadow-color);
+}
+
+.location-section h2 {
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+  color: #ffb347;
+}
+
+.location-section p {
+  font-size: 1.1rem;
+  line-height: 1.5;
+  margin-bottom: 15px;
+}
+
+.location-section a.phone-link {
+  color: #ffb347;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.location-section a.phone-link:hover {
+  text-decoration: underline;
+}
+
+/* Footer */
+.footer {
+  width: 100%;
+  text-align: center;
+  padding: 15px 20px;
+  margin-top: 40px;
+  background-color: var(--footer-bg);
+  color: var(--footer-text);
+  font-size: 0.9rem;
+  border-top: none;
+}
+
+.footer p {
+  margin: 0;
+}
+
+.footer a {
+  color: #ffb347;
+  text-decoration: none;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+}
+
+/* Gradient animation */
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 200% 50%; }
+}
+
+/* Fade-in animation */
+@keyframes fadeIn {
+  to { opacity: 1; }
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+  .page { padding-top: 140px; }
+  .coming-soon { font-size: clamp(2.2rem, 7vw, 4.5rem); }
+}
+
+@media (max-width: 480px) {
+  .logo { height: 100px; }
+  .page { padding-top: 120px; }
+  .coming-soon { font-size: clamp(2rem, 10vw, 4rem); }
+  .icons a { font-size: 1.3rem; margin: 0 8px; }
+  .location-section { padding: 15px; max-width: 90%; }
+  .location-section h2 { font-size: 1.4rem; }
+  .location-section p { font-size: 1rem; }
+  .footer { font-size: 0.8rem; padding: 10px; }
+}

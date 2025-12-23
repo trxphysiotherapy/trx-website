@@ -1,0 +1,48 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="{% static 'main/images/icon.ico' %}" type="image/x-icon">
+
+    <title>{% block title %}TRX PHYSIOTHERAPY & CHIROPRACTIC CENTER{% endblock %}</title>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@900&display=swap" rel="stylesheet">
+
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="{% static 'main/css/style.css' %}">
+</head>
+
+<body>
+    <div class="page">
+
+        <!-- Dark / Light mode toggle button -->
+        <button id="theme-toggle">
+            <i id="theme-icon" class="fas fa-moon"></i>
+        </button>
+
+        <!-- Logo -->
+        <header class="site-header">
+            <a href="/" class="logo-link">
+                <img src="{% static 'main/images/trx-logo.png' %}" alt="TRX Physiotherapy & Chiropractic Center Logo"
+                    class="main-logo">
+            </a>
+        </header>
+        {% block content %}
+        {% endblock %}
+
+        {% include 'main/footer.html' %}
+
+    </div>
+
+    <!-- Main JS -->
+    <script src="{% static 'main/js/script.js' %}"></script>
+</body>
+
+</html>
