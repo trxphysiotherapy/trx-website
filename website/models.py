@@ -9,7 +9,6 @@ class NavBarItem(models.Model):
         upload_to="static/main/images/navbar_logo",
         blank=True,
         null=True,
-        default="static/main/images/navbar_logo/default_logo.png",
     )
 
     def clean(self):
