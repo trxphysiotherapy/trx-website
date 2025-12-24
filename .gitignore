@@ -208,3 +208,7 @@ cython_debug/
 marimo/_static/
 marimo/_lsp/
 __marimo__/
+
+
+# file
+website/static/main/images/navbar_logo
