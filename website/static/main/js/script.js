@@ -16,3 +16,13 @@ toggleButton.addEventListener('click', () => {
     themeIcon.classList.add('fas', 'fa-moon');
   }
 });
+
+// Mobile menu toggle
+const menuToggle = document.getElementById('menu-toggle');
+const navLinks = document.getElementById('nav-links');
+const navActions = document.querySelector('.nav-actions');
+
+menuToggle.addEventListener('click', () => {
+  navLinks.classList.toggle('active');
+  navActions.classList.toggle('active');
+});
