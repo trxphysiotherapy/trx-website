@@ -92,3 +92,5 @@ celerybeat.pid
 *.tmp
 *.swp
 *.bak
+.vercel
+.env*.local
