@@ -19,7 +19,6 @@ pip-wheel-metadata/
 local_settings.py
 db.sqlite3
 db.sqlite3-journal
-media/
 staticfiles/
 
 # Django migrations (optional — usually KEEP these)
@@ -93,6 +92,3 @@ celerybeat.pid
 *.tmp
 *.swp
 *.bak
-
-# Ignore navbar logo image
-website/static/main/images/navbar_logo/default.png
