@@ -12,11 +12,11 @@
 }
 
 body.dark-mode {
-  --bg-color: #000000;
+  --bg-color: #0A1931;
   --text-color: #ffffff;
-  --sub-bg: #111111;
+  --sub-bg: #0A1931;
   --shadow-color: rgba(255, 255, 255, 0.15);
-  --footer-bg: #111111;
+  --footer-bg: #0A1931;
   --footer-text: #aaa;
 }
 
@@ -209,20 +209,110 @@ body {
 /* =========================================================
    FOOTER
 ========================================================= */
-.footer {
+.site-footer {
   width: 100%;
+  background: var(--navbar-bg); /* same as navbar */
+  box-shadow: 0 2px 10px var(--shadow-color);
   margin-top: auto;
-  padding: 15px 20px;
-  background: var(--footer-bg);
-  color: var(--footer-text);
-  text-align: center;
-  font-size: 0.9rem;
+  padding: 20px 0;
 }
 
-.footer a {
+
+.footer-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+/* Left */
+.footer-left {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  flex: 1;
+}
+
+.footer-logo {
+  height: 45px;
+  width: auto;
+}
+
+.footer-address p {
+  font-size: 0.85rem;
+  color: var(--footer-text);
+  margin: 0;
+}
+
+.footer-address a {
   color: var(--accent);
   text-decoration: none;
 }
+
+/* Center */
+.footer-right {
+  flex: 1;
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--footer-text);
+}
+
+/* Right */
+.footer-center {
+  display: flex;
+  gap: 20px;
+  flex: 1;
+  justify-content: flex-end;
+}
+
+.footer-center a {
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-color);
+  transition: color 0.3s ease;
+}
+
+.footer-center a:hover {
+  color: var(--accent);
+}
+
+.footer-right a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+
+/* Mobile */
+@media (max-width: 768px) {
+  .footer-inner {
+    flex-direction: column;
+    text-align: center;
+    gap: 15px;
+  }
+
+  .footer-left {
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .footer-right {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+}
+
+
+
+/* =========================================================
+   GIF SECTION
+========================================================= */
 
 .gif-section {
   width: 100%;
