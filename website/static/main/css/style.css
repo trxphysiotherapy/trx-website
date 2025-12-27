@@ -211,12 +211,42 @@ body {
 ========================================================= */
 .footer {
   width: 100%;
-  margin-top: auto;
-  padding: 15px 20px;
+  padding: 20px 40px;
   background: var(--footer-bg);
   color: var(--footer-text);
-  text-align: center;
-  font-size: 0.9rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  font-size: 0.95rem;
+  box-shadow: 0 -2px 5px rgba(0,0,0,0.1);
+}
+
+.footer-left h4 {
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+.footer-left h2 {
+  margin: 8px 0 12px 0;
+  font-size: 1.4rem;
+}
+
+.footer-left a {
+  display: inline-block;
+  margin-right: 12px;
+  font-size: 1.3rem;
+  color: var(--accent);
+  transition: transform 0.3s, color 0.3s;
+}
+
+.footer-left a:hover {
+  transform: scale(1.2);
+  color: var(--footer-text); /* change color on hover if you want */
+}
+
+.footer-right p {
+  margin: 4px 0;
 }
 
 .footer a {
@@ -224,6 +254,29 @@ body {
   text-decoration: none;
 }
 
+.footer a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive for smaller screens */
+@media (max-width: 768px) {
+  .footer {
+    flex-direction: column;
+    text-align: center;
+    padding: 20px;
+  }
+  .footer-left, .footer-right {
+    max-width: 100%;
+    margin-bottom: 15px;
+  }
+  .footer-left a {
+    margin-right: 15px;
+  }
+}
+
+/* =========================================================
+   GIF SECTION
+========================================================= */
 .gif-section {
   width: 100%;
   max-width: 500px;
