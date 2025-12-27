@@ -1,8 +1,42 @@
 {% load static %}
-<footer class="footer">
-  <p>© <span id="year"></span> TRX Physiotherapy & Chiropractic Center.</p>
-  <p>
-    Designed by
-    <a href="https://anishvarshrestha.com.np/">AZPI</a>
-  </p>
+<footer class="site-footer">
+  <div class="footer-inner">
+
+    <!-- Left: Logo & Address -->
+    <div class="footer-left">
+      {% if site_settings and site_settings.logo %}
+      <img src="{{ site_settings.logo.url }}" alt="{{ site_settings.name }}" class="main-logo">
+      {% endif %}
+      <div class="footer-address">
+        <p>Thapathali Complex - Ward No 11, Kathmandu, Nepal</p>
+        <p>
+          Phone:
+          <a href="tel:+9779851408989" class="phone-link">
+            +977 9851408989
+          </a>
+        </p>
+      </div>
+    </div>
+
+    <!-- Center: Copyright -->
+    <div class="footer-center">
+      <h4>Connect With Us:</h4>
+      <a href="https://www.facebook.com/trxphysio/"><i class="fab fa-facebook-f"></i></a>
+      <a href="https://api.whatsapp.com/send?phone=9779851408989"><i class="fab fa-whatsapp"></i></a>
+      <a href="https://www.instagram.com/trxphysio/"><i class="fab fa-instagram"></i></a>
+      <a href="mailto:trxphysiotherapy@gmail.com"><i class="fas fa-envelope"></i></a>
+      <a href="https://www.tiktok.com/@trxphysio"><i class="fab fa-tiktok"></i></a>
+    </div>
+
+    <!-- Right: Navigation Links -->
+    <div class="footer-right">
+      <p>© <span id="year"></span> TRX Physiotherapy & Chiropractic Center.</p>
+      <p>
+        Designed by
+        <a href="https://anishvarshrestha.com.np/">AZPI</a>
+      </p>
+    </div>
+  </div>
+
+  </div>
 </footer>
