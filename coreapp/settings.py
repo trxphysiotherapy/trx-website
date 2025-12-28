@@ -34,7 +34,7 @@ SECRET_KEY = 'django-insecure-8j!+tvem##o2k=v)jvilsq*e()t9x&tm822pcmwe!m*^&)l60d
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['.vercel.app', '127.0.0.1', 'localhost', 'www.trx.com.np', 'trx.com.np', '*']
+ALLOWED_HOSTS = ['www.trx.com.np', 'trx.com.np', '.vercel.app', '127.0.0.1', 'localhost', '*']
 
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 USE_X_FORWARDED_HOST = True
@@ -139,7 +139,7 @@ USE_TZ = True
 STATIC_URL = 'static/'
 STATIC_ROOT = BASE_DIR / 'staticfiles_build' / 'static'
 STATICFILES_DIRS = [
-    BASE_DIR / 'static',
+    BASE_DIR / 'website/static',
 ]
 
 MEDIA_URL = "/media/"
