@@ -8,7 +8,9 @@
     <link rel="icon" href="{% static 'main/images/icon.ico' %}" type="image/x-icon">
 
     <title>{% block title %}TRX PHYSIOTHERAPY & CHIROPRACTIC CENTER{% endblock %}</title>
-
+    <meta name="description" content="{% block meta_description %}
+    TRX Physiotherapy & Chiropractic Center in Kathmandu, Nepal.
+    {% endblock %}">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 
@@ -27,12 +29,12 @@
             <nav class="navbar">
                 <!-- Logo -->
                 <a href="/" class="logo-link">
-                    <img src="{% static 'main/images/trx-logo.png' %}"
-                        alt="TRX Physiotherapy & Chiropractic Center Logo" class="main-logo">
-                    <!-- {% if site_settings and site_settings.logo %}
-                    <img src="{{ site_settings.logo.url }}" alt="{{ site_settings.name }}"
-                        class="main-logo">
-                    {% endif %} -->
+                    <!-- <img src="{% static 'main/images/trx-logo.png' %}"
+                        alt="TRX Physiotherapy & Chiropractic Center Logo" class="main-logo"> -->
+                    {% if site_settings and site_settings.logo %}
+                    <img src="{{ site_settings.logo.url }}" alt="{{ site_settings.name }}" class="main-logo"
+                        title="{{ site_settings.name }}">
+                    {% endif %}
                 </a>
 
                 <!-- Navigation Links -->
