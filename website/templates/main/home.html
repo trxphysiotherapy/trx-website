@@ -1,7 +1,11 @@
 {% extends 'main/base.html' %}
 {% load static %}
 
-{% block title %}Home | TRX Physiotherapy{% endblock %}
+{% block title %}Treat Your Pain at TRX Physiotherapy & Chiropractic Center{% endblock %}
+{% block meta_description %}
+Expert physiotherapy and chiropractic care at TRX Center. Specializing in TRX treatments for effective pain relief.
+Experience comprehensive care today.
+{% endblock %}
 
 {% block content %}
 
@@ -10,37 +14,126 @@
 
 <!-- Main content -->
 <div class="wrapper">
-    <h1 class="coming-soon">
-        <span>COMING SOON</span>
-    </h1>
-    <img class="gif-section" src="{% static '/main/images/physio-therapy.gif' %}" alt="Physiotherapy GIF" />
-    <!-- Social Icons -->
-    <div class="icons">
-        <h2>Connect With Us</h2>
-        <a href="https://www.facebook.com/trxphysio/"><i class="fab fa-facebook-f"></i></a>
-        <a href="https://api.whatsapp.com/send?phone=9779851408989"><i class="fab fa-whatsapp"></i></a>
-        <a href="https://www.instagram.com/trxphysio/"><i class="fab fa-instagram"></i></a>
-        <a href="mailto:trxphysiotherapy@gmail.com"><i class="fas fa-envelope"></i></a>
-        <a href="https://www.tiktok.com/@trxphysio"><i class="fab fa-tiktok"></i></a>
+    <div class="wrapper-left">
+        <h3>Expert Physiotherapy and Chiropractic care tailored to your recovery.</h3>
+        <p>We offer a wide range of physiotherapy and chiropractic services to help you recover from injuries,
+            conditions, and other health issues. Treatments are customized to your specific needs and goals. How
+            we can help at with and complete your recovery at <span class="trx-span"><span>TRX</span></p>
     </div>
+
+    <div class="wrapper-right">
+        <img class="gif-section" src="{% static '/main/images/physio-therapy.gif' %}"
+            alt="TRX Physiotherapy & Chiropractic Center" title="TRX Physiotherapy & Chiropractic Center" />
+    </div>
+</div>
+<div class="social-icons">
+    <h2>Connect With Us</h2>
+    <a href="https://www.facebook.com/trxphysio/"><i class="fab fa-facebook-f"></i></a>
+    <a href="https://api.whatsapp.com/send?phone=9779851408989"><i class="fab fa-whatsapp"></i></a>
+    <a href="https://www.instagram.com/trxphysio/"><i class="fab fa-instagram"></i></a>
+    <a href="mailto:trxphysiotherapy@gmail.com"><i class="fas fa-envelope"></i></a>
+    <a href="https://www.tiktok.com/@trxphysio"><i class="fab fa-tiktok"></i></a>
+</div>
+
+<div class="main-wrapper">
+    <h2>Why Choose Us?</h2>
+    <p>At TRX Physiotherapy & Chiropractic Center, we prioritize patient safety and well-being.</p>
+
+    <div class="content-grid">
+        <div class="side-column left-align">
+            <div class="info-box">
+                <div class="icon"><i class="fa-solid fa-bandage"></i></div>
+                <div class="text-content">
+                    <h5>Expert Care</h5>
+                    <p>Personalized treatment plans for every patient.</p>
+                </div>
+            </div>
+            <div class="info-box">
+                <div class="icon"><i class="fa-solid fa-microscope"></i></div>
+                <div class="text-content">
+                    <h5>Modern Tech</h5>
+                    <p>Advanced diagnostic and therapy equipment.</p>
+                </div>
+            </div>
+            <div class="info-box">
+                <div class="icon"><i class="fas fa-user-md"></i></div>
+                <div class="text-content">
+                    <h5>Certified Staff</h5>
+                    <p>Highly trained professionals at your service.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="center-column">
+            <div class="gif-wrapper">
+                {% if site_settings and site_settings.logo %}
+                <img src="{{ site_settings.logo.url }}" alt="{{ site_settings.name }}" title="{{ site_settings.name }}">
+                {% endif %}
+            </div>
+        </div>
+
+        <div class="side-column right-align">
+            <div class="info-box">
+                <div class="icon"><i class="fa-solid fa-person-running"></i></div>
+                <div class="text-content">
+                    <h5>Recovery Plans</h5>
+                    <p>Fast-track your health with proven methods.</p>
+                </div>
+            </div>
+            <div class="info-box">
+                <div class="icon"><i class="fa-solid fa-clock"></i></div>
+                <div class="text-content">
+                    <h5>Flexible Hours</h5>
+                    <p>Appointments that fit your busy schedule.</p>
+                </div>
+            </div>
+            <div class="info-box">
+                <div class="icon"><i class="fa-solid fa-credit-card"></i></div>
+                <div class="text-content">
+                    <h5>Cost Efficient</h5>
+                    <p>Affordable treatment options without compromising quality.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 </div>
 
 <!-- Location Section -->
+{% if location %}
 <div class="location-section">
     <h2>Our Location</h2>
-    <p>Thapathali Complex - Ward No 11, Kathmandu, Nepal</p>
-    <p>
-        Phone:
-        <a href="tel:+9779851408989" class="phone-link">
-            +977 9851408989
-        </a>
-    </p>
 
-    <iframe
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3532.881701959894!2d85.31513997557101!3d27.69005092625401!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x87687241480b0677%3A0xc1f3f90f7cf0adb7!2sTRX%20Physiotherapy%20and%20Chiropractic%20Centre!5e0!3m2!1sen!2snp!4v1766411138230!5m2!1sen!2snp"
-        width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy"
-        referrerpolicy="no-referrer-when-downgrade">
-    </iframe>
+    {% if location.address %}
+        <p>{{ location.address }}</p>
+    {% endif %}
+
+    {% if location.primary_phone %}
+        <p>
+            Phone:
+            <a href="tel:{{ location.primary_phone }}" class="phone-link">
+                {{ location.primary_phone }}
+            </a>
+            {% if location.secondary_phone %}
+                , <a href="tel:{{ location.secondary_phone }}" class="phone-link">
+                    {{ location.secondary_phone }}
+                  </a>
+            {% endif %}
+        </p>
+    {% endif %}
+
+    {% if location.google_map_embed_url %}
+        <iframe
+            src="{{ location.google_map_embed_url }}"
+            width="100%"
+            height="250"
+            style="border:0;"
+            allowfullscreen
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+    {% endif %}
 </div>
+{% endif %}
 
 {% endblock %}
