@@ -6,7 +6,7 @@ class NavBarItem(models.Model):
     """Model to store navigation bar item details."""
     name = models.CharField(max_length=255, blank=True)
     logo = models.ImageField(
-        upload_to="static/main/images/navbar_logo",
+        upload_to="navbar_logo/",
         blank=True,
         null=True,
     )
