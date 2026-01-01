@@ -34,3 +34,17 @@ class Location(models.Model):
     
     def __str__(self):
         return self.address
+    
+
+class Testimonial(models.Model):
+    """Model to store testimonial details."""
+    name = models.CharField(max_length=255)
+    content = models.TextField()
+    stars = models.IntegerField(default=1, choices=[(i, i) for i in range(1, 6)])
+
+    def clean(self):
+        if Testimonial.objects.count() >= 15:
+            raise ValidationError("Only 15 testimonial instances are allowed.")
+
+    def __str__(self):
+        return self.name
