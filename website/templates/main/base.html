@@ -38,13 +38,13 @@
                 </a>
 
                 <!-- Navigation Links -->
-                <!-- <ul class="nav-links" id="nav-links">
-                    <li><a href="/">Home</a></li>
-                    <li><a href="/about/">About</a></li>
-                    <li><a href="/services/">Services</a></li>
-                    <li><a href="/blog/">Blog</a></li>
-                    <li><a href="/contact/">Contact</a></li>
-                </ul> -->
+                <ul class="nav-links" id="nav-links">
+                    <a href="/" class="{% if request.path == '/' %}active{% endif %}">Home</a>
+                    <li><a href="/about/" class="{% if request.path == '/about/' %}active{% endif %}">About</a></li>
+                    <li><a href="/services/" class="{% if request.path == '/services/' %}active{% endif %}">Services</a></li>
+                    <li><a href="/blog/" class="{% if request.path == '/blog/' %}active{% endif %}">Blog</a></li>
+                    <li><a href="/contact/" class="{% if request.path == '/contact/' %}active{% endif %}">Contact</a></li>
+                </ul>
 
                 <!-- Right Controls -->
                 <div class="nav-actions">
