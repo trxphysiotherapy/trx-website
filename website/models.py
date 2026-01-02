@@ -48,3 +48,14 @@ class Testimonial(models.Model):
 
     def __str__(self):
         return self.name
+    
+
+class Condition(models.Model):
+    """Model to store condition treatment details."""
+    title = models.CharField(max_length=200)
+    nepali_title = models.CharField(max_length=200)
+    description = models.TextField()
+    image = models.ImageField(upload_to='conditions/')
+
+    def __str__(self):
+        return self.title
