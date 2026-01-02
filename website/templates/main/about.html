@@ -59,150 +59,24 @@ Experience comprehensive care today.
     <div class="conditions-wrapper">
         <h2>Conditions We Treat</h2>
         <div class="flip-container">
+            {% for condition in conditions %}
             <div class="flip-box">
                 <div class="flip-box-inner">
                     <div class="flip-box-front">
-                        <div class="icon"><img src="{% static 'main/images/back_pain.png' %}" alt=""></div>
-                        <h2>Back Pain</h2>
-                        <p>कम्मर दुखाइ</p>
+                        <div class="icon">
+                            <img src="{{ condition.image.url }}" alt="{{ condition.title }}"
+                                title="{{ condition.title}}">
+                        </div>
+                        <h2>{{ condition.title }}</h2>
+                        <p>{{ condition.nepali_title }}</p>
                     </div>
+
                     <div class="flip-box-back">
-                        <p>Reduce pain and improve function in the back.</p>
+                        <p>{{ condition.description }}</p>
                     </div>
                 </div>
             </div>
-            <div class="flip-box">
-                <div class="flip-box-inner">
-                    <div class="flip-box-front">
-                        <div class="icon"><img src="{% static 'main/images/neck_pain.png' %}" alt=""></div>
-                        <h2>Neck Pain</h2>
-                        <p>घाँटी दुखाइ</p>
-                    </div>
-                    <div class="flip-box-back">
-                        <p>Relieve neck pain with safe, effective, and personalized care.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="flip-box">
-                <div class="flip-box-inner">
-                    <div class="flip-box-front">
-                        <div class="icon"><img src="{% static 'main/images/shoulder_pain.png' %}" alt=""></div>
-                        <h2>Shoulder Pain</h2>
-                        <p>काँध दुखाइ</p>
-                    </div>
-                    <div class="flip-box-back">
-                        <p>Effective care to reduce shoulder pain and improve movement.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="flip-box">
-                <div class="flip-box-inner">
-                    <div class="flip-box-front">
-                        <div class="icon"><img src="{% static 'main/images/frozen_shoulder.png' %}" alt=""></div>
-                        <h2>Frozen Shoulder</h2>
-                        <p>फ्रोजिन शोउल्देर</p>
-                    </div>
-                    <div class="flip-box-back">
-                        <p>Specialized treatment to relieve frozen shoulder and restore movement.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="flip-box">
-                <div class="flip-box-inner">
-                    <div class="flip-box-front">
-                        <div class="icon"><img src="{% static 'main/images/arthritis.png' %}" alt=""></div>
-                        <h2>Arthritis & Osteoarthritis</h2>
-                        <p>गठिया र अस्थिघिस्ण</p>
-                    </div>
-                    <div class="flip-box-back">
-                        <p>Personalized care to reduce arthritis pain and improve joint mobility.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="flip-box">
-                <div class="flip-box-inner">
-                    <div class="flip-box-front">
-                        <div class="icon"><img src="{% static 'main/images/Post_Surgical.png' %}" alt=""></div>
-                        <h2>Post-Surgical Rehabilitation</h2>
-                        <p>शल्यक्रिया पछिको पुनर्स्थापना</p>
-                    </div>
-                    <div class="flip-box-back">
-                        <p>Personalized rehabilitation to restore strength and mobility after surgery.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="flip-box">
-                <div class="flip-box-inner">
-                    <div class="flip-box-front">
-                        <div class="icon"><img src="{% static 'main/images/sport_injury.png' %}" alt=""></div>
-                        <h2>Sport Injuries</h2>
-                        <p>खेलकुदको चोट</p>
-                    </div>
-                    <div class="flip-box-back">
-                        <p>Specialized therapy for sports injury recovery and injury prevention.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="flip-box">
-                <div class="flip-box-inner">
-                    <div class="flip-box-front">
-                        <div class="icon"><img src="{% static 'main/images/muscle-strain.png' %}" alt=""></div>
-                        <h2>Muscle Strain</h2>
-                        <p>मांसपेशी तानिने समस्या</p>
-                    </div>
-                    <div class="flip-box-back">
-                        <p>Expert treatment to heal muscle strains and prevent re-injury.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="flip-box">
-                <div class="flip-box-inner">
-                    <div class="flip-box-front">
-                        <div class="icon"><img src="{% static 'main/images/Sciatica.png' %}" alt=""></div>
-                        <h2>Sciatica</h2>
-                        <p>साइटिका</p>
-                    </div>
-                    <div class="flip-box-back">
-                        <p>Care designed to ease sciatica pain and improve mobility.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="flip-box">
-                <div class="flip-box-inner">
-                    <div class="flip-box-front">
-                        <div class="icon"><img src="{% static 'main/images/chronic-pain.png' %}" alt=""></div>
-                        <h2>Chronic Pain</h2>
-                        <p>पुरानो दुखाइ</p>
-                    </div>
-                    <div class="flip-box-back">
-                        <p>Comprehensive care to manage chronic pain and improve quality of life.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="flip-box">
-                <div class="flip-box-inner">
-                    <div class="flip-box-front">
-                        <div class="icon"><img src="{% static 'main/images/nerve-compression.png' %}" alt=""></div>
-                        <h2>Nerve Compression</h2>
-                        <p>कम्मर दुखाइ</p>
-                    </div>
-                    <div class="flip-box-back">
-                        <p>Specialized care to ease nerve pressure and support recovery.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="flip-box">
-                <div class="flip-box-inner">
-                    <div class="flip-box-front">
-                        <div class="icon"><img src="{% static 'main/images/posture-problem.png' %}" alt=""></div>
-                        <h2>Posture Problems</h2>
-                        <p>मुद्रा समस्याहरू</p>
-                    </div>
-                    <div class="flip-box-back">
-                        <p>Personalized solutions to correct posture and boost confidence.</p>
-                    </div>
-                </div>
-            </div>
+            {% endfor %}
         </div>
     </div>
 </section>
