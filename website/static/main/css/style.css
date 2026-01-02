@@ -1165,6 +1165,13 @@ body.dark-mode .nav-btn {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+.conditions-wrapper h2 {
+  text-align: center;
+  margin-bottom: 10px;
+  font-size: 2rem;
+  color: var(--text);
+}
+
 .retreat-wrapper {
     width: 120px;        
     height: 120px;
@@ -1294,9 +1301,12 @@ body.dark-mode .nav-btn {
 
 .flip-box-front h2 {
     font-size: 1.2rem;
-    color: var(--text-color);
+    color: var(--text);
 }
 
+.flip-box-front p {
+    color: var(--text);
+}
 
 /* Back Side Styling */
 .flip-box-back {
