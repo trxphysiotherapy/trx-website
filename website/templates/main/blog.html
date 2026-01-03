@@ -8,7 +8,56 @@ Experience comprehensive care today.
 {% endblock %}
 
 {% block content %}
+<section class="blog-section">
+    <div class="blog-container">
+        {% for post in all_blog_posts %}
+        <div class="card">
+            <div class="card-header">
+                {% if post.image %}
+                <img src="{{ post.image.url }}" alt="{{ post.title }}" />
+                {% endif %}
+            </div>
+            <div class="card-body">
+                {% if post.slug %}
+                <a href="{{ post.get_absolute_url }}" style="text-decoration: none;">
+                    {% else %}
+                    <a href="#" style="text-decoration: none;">
+                        {% endif %}
+                        <span class="tag {{ post.tag_class }}">{{ post.tag }}</span>
+                        <h4>{{ post.title }}</h4>
+                        <p>{{ post.content|striptags|truncatewords:15 }}</p>
+                        <div class="user">
+                            <p>{{ post.created_at|timesince }} ago</p>
+                        </div>
+                    </a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    {% if all_blog_posts.has_other_pages %}
+    <div class="pagination">
+        {% if all_blog_posts.has_previous %}
+        <a href="?page={{ all_blog_posts.previous_page_number }}" class="page-btn">
+            &laquo; Prev
+        </a>
+        {% endif %}
 
-<h1>BLOG</h1>
+        {% for num in all_blog_posts.paginator.page_range %}
+        {% if all_blog_posts.number == num %}
+        <span class="page-btn active">{{ num }}</span>
+        {% else %}
+        <a href="?page={{ num }}" class="page-btn">{{ num }}</a>
+        {% endif %}
+        {% endfor %}
 
+        {% if all_blog_posts.has_next %}
+        <a href="?page={{ all_blog_posts.next_page_number }}" class="page-btn">
+            Next &raquo;
+        </a>
+        {% endif %}
+
+    </div>
+    {% endif %}
+
+</section>
 {% endblock %}

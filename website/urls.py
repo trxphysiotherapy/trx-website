@@ -1,7 +1,8 @@
 from django.urls import path
-from .views import home, about, contact, blog, services
+from .views import home, about, contact, blog, services, blog_list, blog_detail
 from django.conf import settings
 from django.conf.urls.static import static
+
 
 urlpatterns = [
     path("", home, name="home"),
@@ -9,6 +10,8 @@ urlpatterns = [
     path("contact/", contact, name="contact"),
     path("blog/", blog, name="blog"),
     path("services/", services, name="services"),
+    path('blog/', blog_list, name='blog_list'),
+    path('blog/<str:slug>/', blog_detail, name='blog_detail'),
 ]
 
 # Serve media files in development
