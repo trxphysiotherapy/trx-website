@@ -10,6 +10,7 @@
   --card-width: 350px;
   --gap: 20px;
   --snaps-inline: 20px;
+  --shadow-color: rgba(0, 0, 0, 0.1);
 }
 
 body.dark-mode {
@@ -2231,4 +2232,133 @@ body.dark-mode .image-card:hover {
   .image-card {
     height: 220px;
   }
+}
+
+.team-header {
+    text-align: center;
+    margin-bottom: 20px; /* control spacing */
+}
+
+.team-header h2 {
+  padding-top: 20px;
+    margin: 0; /* remove default h2 spacing */
+    font-size: 2.2rem;
+    color: var(--text);
+}
+
+
+.team-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.team-item {
+    flex: 1;
+    min-width: 300px;
+    max-width: 350px;
+    display: flex;
+}
+
+.profile-card {
+    /* Updated variable names */
+    background: var(--sub-bgs);
+    border-radius: 30px;
+    padding: 50px 30px; 
+    text-align: center;
+    position: relative;
+    box-shadow: 0 15px 35px var(--shadow-colors);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    width: 100%;
+    overflow: hidden; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.profile-card:hover {
+    /* Updated variable name */
+    box-shadow: 0 30px 60px var(--shadow-colors);
+    transform: translateY(-15px);
+}
+
+.image-area {
+    position: relative;
+    width: 140px;
+    height: 140px;
+    margin: 0 auto 30px;
+    z-index: 1;
+}
+
+.circle-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #ff4d8d, #ffb347);
+    border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+    animation: morphing 6s infinite ease-in-out;
+    transition: transform 0.5s ease;
+    z-index: -1;
+}
+
+@keyframes morphing {
+    0% { border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; }
+    50% { border-radius: 50% 50% 33% 67% / 55% 27% 73% 45%; }
+    100% { border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; }
+}
+
+.image-area img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    /* Updated variable name */
+    border: 5px solid var(--sub-bgs);
+    display: block;
+}
+
+.profile-card:hover .circle-bg {
+    transform: scale(1.15) rotate(15deg);
+}
+
+.role-badge {
+    display: inline-block;
+    padding: 6px 18px;
+    background: rgba(255, 77, 141, 0.1);
+    /* Updated variable name */
+    color: var(--accents);
+    border-radius: 50px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+
+.info-area h4 {
+    font-size: 1.6rem;
+    /* Updated variable name */
+    color: var(--text-colors);
+    margin: 0 0 12px 0;
+}
+
+.info-area p {
+    font-size: 0.95rem;
+    /* Updated variable name */
+    color: var(--texts);
+    line-height: 1.6;
+    margin-bottom: 0;
+    text-align: left;
+}
+
+/* Dark Mode Overrides */
+body.dark-mode .profile-card {
+    background: #111;
+    border: 1px solid #222;
 }

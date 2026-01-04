@@ -20,6 +20,26 @@ Experience comprehensive care today.
         <p>Committed to delivering safe, effective, and surgeryfree pain
             relief using globally accepted physiotherapy protocols.</p>
     </div>
+    <div class="team-header">
+        <h2>Meet Our Team</h2>
+    </div>
+    <div class="team-container">
+        {% for member in team %}
+        <div class="team-item">
+            <div class="profile-card">
+                <div class="image-area">
+                    <div class="circle-bg"></div>
+                    <img src="{{ member.image.url }}" alt="{{ member.name }}">
+                </div>
+                <div class="info-area">
+                    <span class="role-badge">{{ member.role }}</span>
+                    <h4>{{ member.name }}</h4>
+                    <p>{{ member.bio|linebreaksbr }}</p>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
     <div class="main-wrapper">
         <h2>Treatment Process Overview</h2>
         <div class="services-grid-4">
@@ -80,7 +100,4 @@ Experience comprehensive care today.
         </div>
     </div>
 </section>
-
-
-
 {% endblock %}
