@@ -122,6 +122,9 @@ class VideoContent(models.Model):
     platform = models.CharField(max_length=10, choices=PLATFORM_CHOICES)
     processed_id = models.CharField(max_length=255, editable=False)
 
+    def clean(self):
+        if not self.pk and VideoContent.objects.count() >= 20:
+            raise ValidationError("You can only have a maximum of 20 videos.")
 
     def save(self, *args, **kwargs):
         if self.platform == "youtube":
@@ -154,5 +157,9 @@ class GalleryImage(models.Model):
     alt_text = models.CharField(max_length=200, default="Gallery Image")
     created_at = models.DateTimeField(auto_now_add=True)
 
+    def clean(self):
+        if not self.pk and GalleryImage.objects.count() >= 20:
+            raise ValidationError("You can only have a maximum of 20 gallery images.")
+    
     def __clstr__(self):
         return self.title or f"Image {self.id}"
