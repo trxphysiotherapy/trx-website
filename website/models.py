@@ -3,6 +3,7 @@ from django.core.exceptions import ValidationError
 from django.db import models
 from django.urls import reverse
 from django.utils.text import slugify
+import re
 
 
 class NavBarItem(models.Model):
@@ -105,3 +106,60 @@ class BlogPost(models.Model):
 
     def __str__(self):
         return self.title
+
+
+class VideoContent(models.Model):
+    """Model to store video content details for TikTok and YouTube videos."""
+    PLATFORM_CHOICES = [
+        ("tiktok", "TikTok"),
+        ("youtube", "YouTube"),
+    ]
+
+    title = models.CharField(max_length=200, null=True)
+    embedded_url = models.TextField(
+        help_text="Paste the YouTube link, TikTok link, or full Embed code here"
+    )
+    platform = models.CharField(max_length=10, choices=PLATFORM_CHOICES)
+    processed_id = models.CharField(max_length=255, editable=False)
+
+    def clean(self):
+        if not self.pk and VideoContent.objects.count() >= 20:
+            raise ValidationError("You can only have a maximum of 20 videos.")
+
+    def save(self, *args, **kwargs):
+        if self.platform == "youtube":
+            yt_match = re.search(
+                r"(?:v=|\/v\/|embed\/|shorts\/|youtu.be\/)([a-zA-Z0-9_-]{11})",
+                self.embedded_url,
+            )
+            if yt_match:
+                self.processed_id = yt_match.group(1)
+
+        elif self.platform == "tiktok":
+            tt_match = re.search(r"video/(\d+)", self.embedded_url)
+            if tt_match:
+                self.processed_id = tt_match.group(1)
+            else:
+                tt_id_match = re.search(r'data-video-id="(\d+)"', self.embedded_url)
+                if tt_id_match:
+                    self.processed_id = tt_id_match.group(1)
+
+        super().save(*args, **kwargs)
+
+    def __str__(self):
+        return f"{self.platform.capitalize()} - {self.title}"
+
+
+class GalleryImage(models.Model):
+    """Model to store gallery image details."""
+    title = models.CharField(max_length=200, blank=True)
+    image = models.ImageField(upload_to='gallery/')
+    alt_text = models.CharField(max_length=200, default="Gallery Image")
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def clean(self):
+        if not self.pk and GalleryImage.objects.count() >= 20:
+            raise ValidationError("You can only have a maximum of 20 gallery images.")
+    
+    def __clstr__(self):
+        return self.title or f"Image {self.id}"
