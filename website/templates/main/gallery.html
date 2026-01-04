@@ -1,0 +1,162 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}Treat Your Pain at TRX Physiotherapy & Chiropractic Center{% endblock %}
+{% block meta_description %}
+Expert physiotherapy and chiropractic care at TRX Center. Specializing in TRX treatments for effective pain relief.
+Experience comprehensive care today.
+{% endblock %}
+
+{% block content %}
+<!-- Image Gallery Section -->
+<section class="image-gallery-section">
+    <h2 class="gallery-title">Gallery</h2>
+    <div class="image-scroller">
+        {% for image in images %}
+        <div class="image-card" onclick="openLightbox({{ forloop.counter0 }})">
+            <img src="{{ image.image.url }}" alt="{{ image.alt }}">
+        </div>
+        {% endfor %}
+    </div>
+    <script>
+        let currentImageIndex = 0;
+        let images = [];
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const imageCards = document.querySelectorAll('.image-card img');
+            images = Array.from(imageCards).map(img => img.src);
+            console.log('Loaded images:', images);
+        });
+
+        function openLightbox(index) {
+            currentImageIndex = index;
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightbox-img');
+            const counter = document.getElementById('lightbox-counter');
+
+            lightboxImg.src = images[currentImageIndex];
+            counter.textContent = `${currentImageIndex + 1} / ${images.length}`;
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox(event) {
+            event.stopPropagation();
+            document.getElementById('lightbox').classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        function changeImage(direction, event) {
+            event.stopPropagation();
+            currentImageIndex += direction;
+
+            if (currentImageIndex >= images.length) currentImageIndex = 0;
+            if (currentImageIndex < 0) currentImageIndex = images.length - 1;
+
+            document.getElementById('lightbox-img').src = images[currentImageIndex];
+            document.getElementById('lightbox-counter').textContent = `${currentImageIndex + 1} / ${images.length}`;
+        }
+
+        document.addEventListener('keydown', function (e) {
+            const lightbox = document.getElementById('lightbox');
+            if (lightbox.classList.contains('active')) {
+                if (e.key === 'Escape') closeLightbox(e);
+                if (e.key === 'ArrowLeft') changeImage(-1, e);
+                if (e.key === 'ArrowRight') changeImage(1, e);
+            }
+        });
+
+        // let currentImageIndex = 0;
+        // let images = [];
+
+        // document.addEventListener('DOMContentLoaded', function () {
+        //     const imageCards = document.querySelectorAll('.image-card img');
+        //     images = Array.from(imageCards).map(img => img.src);
+        //     console.log('Loaded images:', images);
+        // });
+
+        // function openLightbox(index) {
+        //     currentImageIndex = index;
+        //     const lightbox = document.getElementById('lightbox');
+        //     const lightboxImg = document.getElementById('lightbox-img');
+        //     const counter = document.getElementById('lightbox-counter');
+
+        //     lightboxImg.src = images[currentImageIndex];
+        //     counter.textContent = `${currentImageIndex + 1} / ${images.length}`;
+        //     lightbox.classList.add('active');
+        //     document.body.style.overflow = 'hidden';
+        // }
+
+        // function closeLightbox(event) {
+        //     event.stopPropagation();
+        //     document.getElementById('lightbox').classList.remove('active');
+        //     document.body.style.overflow = '';
+        // }
+
+        // function changeImage(direction, event) {
+        //     event.stopPropagation();
+        //     currentImageIndex += direction;
+
+        //     if (currentImageIndex >= images.length) currentImageIndex = 0;
+        //     if (currentImageIndex < 0) currentImageIndex = images.length - 1;
+
+        //     document.getElementById('lightbox-img').src = images[currentImageIndex];
+        //     document.getElementById('lightbox-counter').textContent = `${currentImageIndex + 1} / ${images.length}`;
+        // }
+
+        // document.addEventListener('keydown', function (e) {
+        //     const lightbox = document.getElementById('lightbox');
+        //     if (lightbox.classList.contains('active')) {
+        //         if (e.key === 'Escape') closeLightbox(e);
+        //         if (e.key === 'ArrowLeft') changeImage(-1, e);
+        //         if (e.key === 'ArrowRight') changeImage(1, e);
+        //     }
+        // });
+    </script>
+</section>
+
+<!-- Lightbox Modal -->
+<div class="lightbox" id="lightbox" onclick="closeLightbox(event)">
+    <button class="lightbox-close" onclick="closeLightbox(event)">&times;</button>
+    <button class="lightbox-nav lightbox-prev" onclick="changeImage(-1, event)">&#10094;</button>
+    <div class="lightbox-content">
+        <img id="lightbox-img" src="" alt="Lightbox Image">
+    </div>
+    <button class="lightbox-nav lightbox-next" onclick="changeImage(1, event)">&#10095;</button>
+    <div class="lightbox-counter" id="lightbox-counter"></div>
+</div>
+<section class="video-showcase">
+    <div class="video-container">
+        <h2 class="section-title">TikTok Videos</h2>
+        <div class="media-scroller tiktok-scroller">
+            {% for video in tiktok_videos %}
+            <div class="video-card tiktok-card">
+                <div class="tiktok-responsive">
+                    <iframe src="https://www.tiktok.com/player/v1/{{ video.processed_id }}" title="{{ video.title }}"
+                        allow="fullscreen">
+                    </iframe>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+        <hr class="section-divider">
+
+        <h2 class="section-title">YouTube Videos</h2>
+        <div class="media-scroller youtube-scroller">
+            {% for video in youtube_videos %}
+            <div class="video-card youtube-card">
+                <div class="video-responsive">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/{{ video.processed_id }}"
+                        title="{{ video.title }}" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+                    </iframe>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+{% endblock %}

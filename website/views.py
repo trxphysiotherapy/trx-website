@@ -16,8 +16,8 @@ def services(request):
 def blog(request):
     return render(request, 'main/blog.html')
 
-def contact(request):
-    return render(request, 'main/contact.html')
+def gallery(request):
+    return render(request, 'main/gallery.html')
 
 def blog_list(request):
     post_list = BlogPost.objects.all().order_by('-created_at')
