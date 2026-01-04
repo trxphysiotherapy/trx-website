@@ -9,6 +9,7 @@ from .models import (
     Service,
     Testimonial,
     VideoContent,
+    TeamMember,
 )
 
 
@@ -44,7 +45,8 @@ def site_settings(request):
             "all_blog_posts": page_obj,
             "tiktok_videos": tiktok_videos,
             "youtube_videos": youtube_videos,
-            "images": images
+            "images": images,
+            "team": TeamMember.objects.all()
         }
     except Exception:
         return {
@@ -56,5 +58,6 @@ def site_settings(request):
             "all_blog_posts": None,
             "tiktok_videos": None,
             "youtube_videos": None,
-            "images": None
+            "images": None,
+            "team": None
         }

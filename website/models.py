@@ -163,3 +163,14 @@ class GalleryImage(models.Model):
     
     def __clstr__(self):
         return self.title or f"Image {self.id}"
+    
+
+class TeamMember(models.Model):
+    """Model to store team member details."""
+    name = models.CharField(max_length=100)
+    role = models.CharField(max_length=100)
+    bio = models.TextField()
+    image = models.ImageField(upload_to='team/')
+
+    def __str__(self):
+        return self.name

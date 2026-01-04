@@ -10,6 +10,7 @@ from .models import (
     Service,
     Testimonial,
     VideoContent,
+    TeamMember,
 )
 
 admin.site.register(NavBarItem)
@@ -27,3 +28,7 @@ class GalleryImageAdmin(admin.ModelAdmin):
         if obj.image:
             return format_html('<img src="{}" style="width: 50px; height: auto;" />', obj.image.url)
         return "No Image"
+
+@admin.register(TeamMember)
+class TeamMemberAdmin(admin.ModelAdmin):
+    list_display = ('name', 'role')
