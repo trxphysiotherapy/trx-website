@@ -174,3 +174,52 @@ class TeamMember(models.Model):
 
     def __str__(self):
         return self.name
+    
+
+class Company(models.Model):
+    """Model to store company details."""
+    full_name = models.CharField(max_length=100)
+    short_name = models.CharField(max_length=100)
+
+    def clean(self):
+        if Company.objects.exists() and not self.pk:
+            raise ValidationError("Only one Company instance is allowed.")
+        
+    def __str__(self):
+        return self.full_name
+    
+
+class SEOTitleAndMetaDescription(models.Model):
+    PAGE_CHOICES = [
+        ('home', 'Home'),
+        ('about', 'About'),
+        ('service', 'Services'),
+        ('gallery', 'Gallery'),
+        ('blog', 'Blog'),
+    ]
+
+    page_type = models.CharField(
+        max_length=20, 
+        choices=PAGE_CHOICES, 
+        unique=True,
+        help_text="Select the page this SEO data belongs to."
+    )
+    title = models.CharField(
+        max_length=100, 
+        help_text="Include Title from 50 to 65 characters."
+    )
+    meta_description = models.TextField(
+        help_text="Include Meta Description from 70 to 150 characters."
+    )
+
+    class Meta:
+        verbose_name = "SEO Setting"
+        verbose_name_plural = "SEO Settings"
+
+    def clean(self):
+        exists = SEOTitleAndMetaDescription.objects.filter(page_type=self.page_type).exclude(pk=self.pk).exists()
+        if exists:
+            raise ValidationError(f"SEO settings for the '{self.get_page_type_display()}' page already exist.")
+
+    def __str__(self):
+        return f"{self.get_page_type_display()} - {self.title}"

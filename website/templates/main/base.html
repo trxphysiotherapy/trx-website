@@ -42,7 +42,7 @@
                     <a href="/" class="{% if request.path == '/' %}active{% endif %}">Home</a>
                     <li><a href="/about/" class="{% if request.path == '/about/' %}active{% endif %}">About</a></li>
                     <li><a href="/services/" class="{% if request.path == '/services/' %}active{% endif %}">Services</a></li>
-                    <li><a href="/blog/" class="{% if request.path == '/blog/' %}active{% endif %}">Blog</a></li>
+                    <li><a href="/blog/" class="{% if '/blog/' in request.path %}active{% endif %}">Blog</a></li>
                     <li><a href="/gallery/" class="{% if request.path == '/gallery/' %}active{% endif %}">Gallery</a></li>
                 </ul>
 

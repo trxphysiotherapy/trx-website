@@ -1,10 +1,9 @@
 {% extends 'main/base.html' %}
 {% load static %}
 
-{% block title %}Treat Your Pain at TRX Physiotherapy & Chiropractic Center{% endblock %}
+{% block title %}Home - {% if home %}{{ home.title}}{% endif %}{% endblock %}
 {% block meta_description %}
-Expert physiotherapy and chiropractic care at TRX Center. Specializing in TRX treatments for effective pain relief.
-Experience comprehensive care today.
+{% if home %}{{ home.meta_description}}{% endif %}
 {% endblock %}
 
 {% block content %}
@@ -18,7 +17,7 @@ Experience comprehensive care today.
         <h3>Expert Physiotherapy and Chiropractic care tailored to your recovery.</h3>
         <p>We offer a wide range of physiotherapy and chiropractic services to help you recover from injuries,
             conditions, and other health issues. Treatments are customized to your specific needs and goals. How
-            we can help at with and complete your recovery at <span class="trx-span"><span>TRX</span></p>
+            we can help at with and complete your recovery at {% if company %} <span class="trx-span"><span>{{ company.short_name}}</span>{% endif %}.</p>
     </div>
 
     <div class="wrapper-right">
@@ -37,7 +36,7 @@ Experience comprehensive care today.
 
 <div class="main-wrapper">
     <h2>Why Choose Us?</h2>
-    <p>At TRX Physiotherapy & Chiropractic Center, we prioritize patient safety and well-being.</p>
+    <p>{% if company %}At {{ company.full_name }}, we prioritize patient safety and well-being.{% else %}We prioritize patient safety and well-being.{% endif %}</p>
 
     <div class="content-grid">
         <div class="side-column left-align">

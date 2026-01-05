@@ -1,10 +1,9 @@
 {% extends 'main/base.html' %}
 {% load static %}
 
-{% block title %}Treat Your Pain at TRX Physiotherapy & Chiropractic Center{% endblock %}
+{% block title %}Blogs - {% if blog %}{{ blog.title}}{% endif %}{% endblock %}
 {% block meta_description %}
-Expert physiotherapy and chiropractic care at TRX Center. Specializing in TRX treatments for effective pain relief.
-Experience comprehensive care today.
+{% if blog %}{{ blog.meta_description}}{% endif %}
 {% endblock %}
 
 {% block content %}

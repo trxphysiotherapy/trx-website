@@ -11,6 +11,8 @@ from .models import (
     Testimonial,
     VideoContent,
     TeamMember,
+    Company,
+    SEOTitleAndMetaDescription
 )
 
 admin.site.register(NavBarItem)
@@ -32,3 +34,5 @@ class GalleryImageAdmin(admin.ModelAdmin):
 @admin.register(TeamMember)
 class TeamMemberAdmin(admin.ModelAdmin):
     list_display = ('name', 'role')
+admin.site.register(Company)
+admin.site.register(SEOTitleAndMetaDescription)

@@ -10,6 +10,8 @@ from .models import (
     Testimonial,
     VideoContent,
     TeamMember,
+    Company,
+    SEOTitleAndMetaDescription
 )
 
 
@@ -34,6 +36,13 @@ def site_settings(request):
 
         # Image
         images = GalleryImage.objects.all().order_by('-created_at')
+
+        # SEO Title and Meta Description
+        home = SEOTitleAndMetaDescription.objects.filter(page_type='home').first()
+        about = SEOTitleAndMetaDescription.objects.filter(page_type='about').first()
+        service = SEOTitleAndMetaDescription.objects.filter(page_type='service').first()
+        blog = SEOTitleAndMetaDescription.objects.filter(page_type='blog').first()
+        gallery = SEOTitleAndMetaDescription.objects.filter(page_type='gallery').first()
     
         return {
             "site_settings": NavBarItem.objects.first(),
@@ -46,7 +55,14 @@ def site_settings(request):
             "tiktok_videos": tiktok_videos,
             "youtube_videos": youtube_videos,
             "images": images,
-            "team": TeamMember.objects.all()
+            "team": TeamMember.objects.all(),
+            "company": Company.objects.first(),
+            "home": home,
+            "about": about,
+            "service": service,
+            "blog": blog,
+            "gallery": gallery,
+
         }
     except Exception:
         return {
@@ -59,5 +75,12 @@ def site_settings(request):
             "tiktok_videos": None,
             "youtube_videos": None,
             "images": None,
-            "team": None
+            "team": None,
+            "company": None,
+            "home": None,
+            "about": None,
+            "service": None,
+            "blog": None,
+            "gallery": None,
+            
         }
