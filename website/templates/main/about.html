@@ -1,10 +1,9 @@
 {% extends 'main/base.html' %}
 {% load static %}
 
-{% block title %}Treat Your Pain at TRX Physiotherapy & Chiropractic Center{% endblock %}
+{% block title %}About - {% if about %}{{ about.title}}{% endif %}{% endblock %}
 {% block meta_description %}
-Expert physiotherapy and chiropractic care at TRX Center. Specializing in TRX treatments for effective pain relief.
-Experience comprehensive care today.
+{% if about %}{{ about.meta_description}}{% endif %}
 {% endblock %}
 
 {% block content %}
@@ -15,7 +14,7 @@ Experience comprehensive care today.
     </div>
     <div class="about-span">
         <span class="trx-span">
-            <h2>TRX Physiotherapy & Chiropractic Center</h2>
+            <h2>{% if company %} {{ company.full_name }} {% endif %}</h2>
         </span>
         <p>Committed to delivering safe, effective, and surgeryfree pain
             relief using globally accepted physiotherapy protocols.</p>
