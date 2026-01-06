@@ -121,6 +121,10 @@ class VideoContent(models.Model):
     )
     platform = models.CharField(max_length=10, choices=PLATFORM_CHOICES)
     processed_id = models.CharField(max_length=255, editable=False)
+    created_at = models.DateTimeField(auto_now_add=True, null=True, blank=True)
+
+    class Meta:
+        ordering = ['-created_at']
 
     def clean(self):
         if not self.pk and VideoContent.objects.count() >= 20:
