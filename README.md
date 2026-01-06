@@ -14,4 +14,5 @@ This is a website for TRX Physio Therapy & Chiropractic Center. The website is b
 You can contact us at [trxphysiotherapy@gmail.com](mailto:trxphysiotherapy@gmail.com).
 All rights reserved.
 
-Author: Anish Var Shrestha Email: [shresthaanishvar@gmail.com](mailto:shresthaanishvar@gmail.com)
+Author: [Anish Var Shrestha](https://github.com/anishvarshrestha)
+ Email: [shresthaanishvar@gmail.com](mailto:shresthaanishvar@gmail.com)
