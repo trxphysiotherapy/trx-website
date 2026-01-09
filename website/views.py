@@ -1,7 +1,8 @@
+from django.contrib import messages
 from django.core.paginator import Paginator
-from django.shortcuts import get_object_or_404, render
+from django.shortcuts import get_object_or_404, redirect, render
 
-from .models import BlogPost
+from .models import Appointment, BlogPost
 
 
 def home(request):
@@ -34,3 +35,32 @@ def blog_list(request):
 def blog_detail(request, slug):
     post = get_object_or_404(BlogPost, slug=slug)
     return render(request, 'main/blog_detail.html', {'post': post})
+
+def appointment(request):
+    return render(request, 'main/appointment.html')
+
+def book_appointment(request):
+    if request.method == "POST":
+        # Get data from the POST request
+        name = request.POST.get('name')
+        email = request.POST.get('email')
+        phone = request.POST.get('phone')
+        message = request.POST.get('message')
+
+        # Basic validation: ensure phone is provided (since blank=False in model)
+        if not phone:
+            messages.error(request, "Phone number is required.")
+            return render(request, 'booking/book_appointment.html')
+
+        # Create and save the object in the database
+        Appointment.objects.create(
+            name=name,
+            email=email,
+            phone=phone,
+            message=message
+        )
+        
+        messages.success(request, "Appointment requested successfully!")
+        return redirect('appointment')
+
+    return render(request, 'main/appointment.html')

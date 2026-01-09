@@ -1,9 +1,10 @@
+import re
+
 from ckeditor_uploader.fields import RichTextUploadingField
 from django.core.exceptions import ValidationError
 from django.db import models
 from django.urls import reverse
 from django.utils.text import slugify
-import re
 
 
 class NavBarItem(models.Model):
@@ -110,6 +111,7 @@ class BlogPost(models.Model):
 
 class VideoContent(models.Model):
     """Model to store video content details for TikTok and YouTube videos."""
+
     PLATFORM_CHOICES = [
         ("tiktok", "TikTok"),
         ("youtube", "YouTube"),
@@ -124,7 +126,7 @@ class VideoContent(models.Model):
     created_at = models.DateTimeField(auto_now_add=True, null=True, blank=True)
 
     class Meta:
-        ordering = ['-created_at']
+        ordering = ["-created_at"]
 
     def clean(self):
         if not self.pk and VideoContent.objects.count() >= 20:
@@ -156,61 +158,63 @@ class VideoContent(models.Model):
 
 class GalleryImage(models.Model):
     """Model to store gallery image details."""
+
     title = models.CharField(max_length=200, blank=True)
-    image = models.ImageField(upload_to='gallery/')
+    image = models.ImageField(upload_to="gallery/")
     alt_text = models.CharField(max_length=200, default="Gallery Image")
     created_at = models.DateTimeField(auto_now_add=True)
 
     def clean(self):
         if not self.pk and GalleryImage.objects.count() >= 20:
             raise ValidationError("You can only have a maximum of 20 gallery images.")
-    
+
     def __clstr__(self):
         return self.title or f"Image {self.id}"
-    
+
 
 class TeamMember(models.Model):
     """Model to store team member details."""
+
     name = models.CharField(max_length=100)
     role = models.CharField(max_length=100)
     bio = models.TextField()
-    image = models.ImageField(upload_to='team/')
+    image = models.ImageField(upload_to="team/")
 
     def __str__(self):
         return self.name
-    
+
 
 class Company(models.Model):
     """Model to store company details."""
+
     full_name = models.CharField(max_length=100)
     short_name = models.CharField(max_length=100)
 
     def clean(self):
         if Company.objects.exists() and not self.pk:
             raise ValidationError("Only one Company instance is allowed.")
-        
+
     def __str__(self):
         return self.full_name
-    
+
 
 class SEOTitleAndMetaDescription(models.Model):
     PAGE_CHOICES = [
-        ('home', 'Home'),
-        ('about', 'About'),
-        ('service', 'Services'),
-        ('gallery', 'Gallery'),
-        ('blog', 'Blog'),
+        ("home", "Home"),
+        ("about", "About"),
+        ("service", "Services"),
+        ("gallery", "Gallery"),
+        ("blog", "Blog"),
     ]
 
     page_type = models.CharField(
-        max_length=20, 
-        choices=PAGE_CHOICES, 
+        max_length=20,
+        choices=PAGE_CHOICES,
         unique=True,
-        help_text="Select the page this SEO data belongs to."
+        help_text="Select the page this SEO data belongs to.",
     )
     title = models.CharField(
-        max_length=100, 
-        help_text="Include Title from 50 to 65 characters."
+        max_length=100, help_text="Include Title from 50 to 65 characters."
     )
     meta_description = models.TextField(
         help_text="Include Meta Description from 70 to 150 characters."
@@ -221,9 +225,51 @@ class SEOTitleAndMetaDescription(models.Model):
         verbose_name_plural = "SEO Settings"
 
     def clean(self):
-        exists = SEOTitleAndMetaDescription.objects.filter(page_type=self.page_type).exclude(pk=self.pk).exists()
+        exists = (
+            SEOTitleAndMetaDescription.objects.filter(page_type=self.page_type)
+            .exclude(pk=self.pk)
+            .exists()
+        )
         if exists:
-            raise ValidationError(f"SEO settings for the '{self.get_page_type_display()}' page already exist.")
+            raise ValidationError(
+                f"SEO settings for the '{self.get_page_type_display()}' page already exist."
+            )
 
     def __str__(self):
         return f"{self.get_page_type_display()} - {self.title}"
+
+
+class Appointment(models.Model):
+    STATUS_CHOICES = [
+        ("pending", "Pending"),
+        ("confirmed", "Confirmed"),
+        ("completed", "Followed Up / Completed"),
+        ("cancelled", "Cancelled"),
+    ]
+
+    name = models.CharField(max_length=100)
+    email = models.EmailField(blank=True)
+    phone = models.CharField(max_length=15, blank=False)
+    message = models.TextField(blank=True)
+    status = models.CharField(max_length=20, choices=STATUS_CHOICES, default="pending")
+    admin_notes = models.TextField(blank=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return f"{self.name} - {self.created_at.strftime('%Y-%m-%d')}"
+
+
+# Proxy models for separate Admin views
+class NewRequest(Appointment):
+    class Meta:
+        proxy = True
+        verbose_name = "New Request"
+        verbose_name_plural = "New Requests"
+
+
+class CompletedRecord(Appointment):
+    class Meta:
+        proxy = True
+        verbose_name = "Followed-up Record"
+        verbose_name_plural = "Followed-up Records"
