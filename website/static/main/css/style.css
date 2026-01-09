@@ -2362,3 +2362,184 @@ body.dark-mode .profile-card {
     background: #111;
     border: 1px solid #222;
 }
+
+/* --- Appointment Button Styling --- */
+.nav-links .nav-btn-link {
+    background-color: var(--accent);
+    color: var(--text) !important; /* Ensure text is white even in light mode */
+    padding: 10px 20px;
+    border-radius: 50px; /* Rounded pill shape */
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(255, 179, 71, 0.3); /* Soft glow using your accent color */
+    display: inline-block;
+}
+
+.nav-links .nav-btn-link:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(255, 179, 71, 0.4);
+    background-color: #ff9f2e; /* Slightly darker shade of your accent */
+}
+
+/* Remove the "active" underline effect if you have one for standard links */
+.nav-links .nav-btn-link.active {
+    background-color: var(--accent); /* Different color or darker accent when on the page */
+    border-bottom: none;
+}
+
+/* Dark Mode adjustment for the button text if needed */
+body.dark-mode .nav-links .nav-btn-link {
+    color: var(--text) !important; /* Black text on orange button usually pops better in dark mode */
+    font-weight: 700;
+}
+
+/* Responsive adjustment: Make it full width in the mobile menu */
+@media (max-width: 768px) {
+    .nav-links .nav-btn-link {
+        width: 100%;
+        text-align: center;
+        margin-top: 10px;
+    }
+}
+
+/* Appointment Form Specific Styling */
+.appointment-form {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    text-align: left;
+}
+
+.form-group label {
+    font-weight: 600;
+    color: var(--text-color);
+    font-size: 0.9rem;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.appointment-form input, 
+.appointment-form textarea {
+    padding: 12px 15px;
+    border-radius: 10px;
+    border: 1px solid var(--shadow-color);
+    background: var(--sub-bg);
+    color: var(--text-color);
+    font-family: var(--font-family);
+    transition: all 0.3s ease;
+}
+
+.appointment-form input:focus, 
+.appointment-form textarea:focus {
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(255, 179, 71, 0.2);
+}
+
+.submit-btn {
+    background: var(--accent);
+    color: white;
+    padding: 15px;
+    border: none;
+    border-radius: 10px;
+    font-weight: 700;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: transform 0.3s ease, background 0.3s ease;
+    margin-top: 10px;
+}
+
+.submit-btn:hover {
+    background: #ff9f2e;
+    transform: translateY(-2px);
+}
+
+/* Dark Mode Input Tweaks */
+body.dark-mode .appointment-form input,
+body.dark-mode .appointment-form textarea {
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Mobile Responsiveness for Form */
+@media (max-width: 600px) {
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+    
+    .main-wrapper {
+        padding: 20px;
+    }
+}
+/* Modern Success Box */
+.info-box.success {
+    background-color: #ecfdf5; /* Soft Mint */
+    border: 1px solid #10b981;
+    border-radius: 12px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    animation: slideDown 0.5s ease-out;
+}
+
+.info-box.success p {
+    color: #065f46;
+    margin: 0;
+    font-size: 1.1rem;
+}
+
+@keyframes slideDown {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+.success-container {
+    text-align: center;
+    padding: 40px;
+    background: #f9f9f9;
+    border-radius: 15px;
+    border: 1px solid #e0e0e0;
+    margin: 20px 0;
+}
+
+.success-icon {
+    font-size: 50px;
+    color: #2ecc71;
+    margin-bottom: 10px;
+}
+
+.btn-return {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 25px;
+    background-color: #5d3fd3; /* Use your primary brand color */
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.success-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+.success-card h3 {
+  color: var(--text);
+}
+.success-card p {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
