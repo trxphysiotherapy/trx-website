@@ -15,6 +15,7 @@ from .models import (
     SEOTitleAndMetaDescription,
     NewRequest,
     CompletedRecord,
+    Appointment
 )
 
 admin.site.register(NavBarItem)
@@ -24,6 +25,7 @@ admin.site.register(Condition)
 admin.site.register(Service)
 admin.site.register(BlogPost)
 admin.site.register(VideoContent)
+admin.site.register(Appointment)
 @admin.register(GalleryImage)
 class GalleryImageAdmin(admin.ModelAdmin):
     list_display = ('title', 'thumbnail', 'created_at')
@@ -44,6 +46,7 @@ class BaseAppointmentAdmin(admin.ModelAdmin):
     list_filter = ('service', 'date')
     search_fields = ('name', 'phone')
     list_editable = ('status',)
+
 
 
 @admin.register(NewRequest)
