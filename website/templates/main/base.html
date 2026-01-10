@@ -8,7 +8,9 @@
     <link rel="icon" href="{% static 'main/images/icon.ico' %}" type="image/x-icon">
 
     <title>{% block title %}TRX PHYSIOTHERAPY & CHIROPRACTIC CENTER{% endblock %}</title>
-
+    <meta name="description" content="{% block meta_description %}
+    TRX Physiotherapy & Chiropractic Center in Kathmandu, Nepal.
+    {% endblock %}">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 
@@ -41,19 +43,28 @@
                     <!-- <img src="{% static 'main/images/trx-logo.png' %}"
                         alt="TRX Physiotherapy & Chiropractic Center Logo" class="main-logo"> -->
                     {% if site_settings and site_settings.logo %}
-                    <img src="{{ site_settings.logo.url }}" alt="{{ site_settings.name }}"
-                        class="main-logo">
+                    <img src="{{ site_settings.logo.url }}" alt="{{ site_settings.name }}" class="main-logo"
+                        title="{{ site_settings.name }}">
                     {% endif %}
                 </a>
 
                 <!-- Navigation Links -->
-                <!-- <ul class="nav-links" id="nav-links">
-                    <li><a href="/">Home</a></li>
-                    <li><a href="/about/">About</a></li>
-                    <li><a href="/services/">Services</a></li>
-                    <li><a href="/blog/">Blog</a></li>
-                    <li><a href="/contact/">Contact</a></li>
-                </ul> -->
+                <ul class="nav-links" id="nav-links">
+                    <a href="/" class="{% if request.path == '/' %}active{% endif %}">Home</a>
+                    <li><a href="/about/" class="{% if request.path == '/about/' %}active{% endif %}">About</a></li>
+                    <li><a href="/services/" class="{% if request.path == '/services/' %}active{% endif %}">Services</a>
+                    </li>
+                    <li><a href="/blog/" class="{% if '/blog/' in request.path %}active{% endif %}">Blog</a></li>
+                    <li><a href="/gallery/" class="{% if request.path == '/gallery/' %}active{% endif %}">Gallery</a>
+                    </li>
+                    <!-- <li><a href="/appointment/" class="{% if request.path == '/appointment/' %}active{% endif %}">Book an Appointment</a></li> -->
+                    <li>
+                        <a href="/appointment/"
+                            class="nav-btn-link {% if request.path == '/appointment/' %}active{% endif %}">
+                            Book an Appointment
+                        </a>
+                    </li>
+                </ul>
 
                 <!-- Right Controls -->
                 <div class="nav-actions">

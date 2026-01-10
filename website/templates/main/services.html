@@ -1,0 +1,56 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}Services - {% if service %}{{ service.title}}{% endif %}{% endblock %}
+{% block meta_description %}
+{% if service %}{{ service.meta_description}}{% endif %}
+{% endblock %}
+
+{% block content %}
+
+<section class="main-wrapper">
+    <h2>Our Services</h2>
+    <p>Serving the pain, recovery, and wellness needs of our patients.</p>
+
+    <div class="content-grid">
+        <div class="side-column left-align">
+            {% for service in left_services %}
+            <div class="info-box">
+                <div class="text-content">
+                    <h5>{{ service.title|upper }}</h5>
+                    <p>{{ service.description }}</p>
+                    <p>
+                        {% for point in service.get_points_list %}
+                        {{ forloop.counter }}. {{ point }}<br>
+                        {% endfor %}
+                    </p>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+        <div class="center-column-image">
+            <img src="{% static '/main/images/spinal-cord.png' %}" alt="Spinal Cord" class="spine-diagram">
+        </div>
+
+        <div class="side-column right-align">
+            {% for service in right_services %}
+            <div class="info-box">
+                <div class="text-content">
+                    <h5>{{ service.title|upper }}</h5>
+                    <p>{{ service.description }}</p>
+                    <p>
+                        {% for point in service.get_points_list %}
+                        {{ forloop.counter }}. {{ point }}<br>
+                        {% endfor %}
+                    </p>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+<div class="full-screen-banner">
+    <img src="{% static '/main/images/service_image.png' %}" alt="TRX Services Banner">
+</div>
+{% endblock %}

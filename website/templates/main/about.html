@@ -1,0 +1,102 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}About - {% if about %}{{ about.title}}{% endif %}{% endblock %}
+{% block meta_description %}
+{% if about %}{{ about.meta_description}}{% endif %}
+{% endblock %}
+
+{% block content %}
+
+<section class="about-container">
+    <div class="retreat-wrapper">
+        <img src="{% static 'main/images/retreat.png' %}" alt="">
+    </div>
+    <div class="about-span">
+        <span class="trx-span">
+            <h2>{% if company %} {{ company.full_name }} {% endif %}</h2>
+        </span>
+        <p>Committed to delivering safe, effective, and surgeryfree pain
+            relief using globally accepted physiotherapy protocols.</p>
+    </div>
+    <div class="team-header">
+        <h2>Meet Our Team</h2>
+    </div>
+    <div class="team-container">
+        {% for member in team %}
+        <div class="team-item">
+            <div class="profile-card">
+                <div class="image-area">
+                    <div class="circle-bg"></div>
+                    <img src="{{ member.image.url }}" alt="{{ member.name }}">
+                </div>
+                <div class="info-area">
+                    <span class="role-badge">{{ member.role }}</span>
+                    <h4>{{ member.name }}</h4>
+                    <p>{{ member.bio|linebreaksbr }}</p>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    <div class="main-wrapper">
+        <h2>Treatment Process Overview</h2>
+        <div class="services-grid-4">
+            <div class="info-box">
+                <div class="icon"><i class="fas fa-user-md"></i></div>
+                <div class="text-content">
+                    <h5>Consultation</h5>
+                    <p>Personalized treatment plans for every patient.</p>
+                </div>
+            </div>
+
+            <div class="info-box">
+                <div class="icon"><i class="fa-solid fa-microscope"></i></div>
+                <div class="text-content">
+                    <h5>Diagnosis</h5>
+                    <p>Advanced diagnostic and therapy equipment.</p>
+                </div>
+            </div>
+
+            <div class="info-box">
+                <div class="icon"><i class="fa-solid fa-bandage"></i></div>
+                <div class="text-content">
+                    <h5>Treatment Plan</h5>
+                    <p>Highly trained professionals at your service.</p>
+                </div>
+            </div>
+
+            <div class="info-box">
+                <div class="icon"><i class="fa-solid fa-person-circle-plus"></i></div>
+                <div class="text-content">
+                    <h5>Recovery & Follow-up</h5>
+                    <p>Fast-track your health with proven methods.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="conditions-wrapper">
+        <h2>Conditions We Treat</h2>
+        <div class="flip-container">
+            {% for condition in conditions %}
+            <div class="flip-box">
+                <div class="flip-box-inner">
+                    <div class="flip-box-front">
+                        <div class="icon">
+                            <img src="{{ condition.image.url }}" alt="{{ condition.title }}"
+                                title="{{ condition.title}}">
+                        </div>
+                        <h2>{{ condition.title }}</h2>
+                        <p>{{ condition.nepali_title }}</p>
+                    </div>
+
+                    <div class="flip-box-back">
+                        <p>{{ condition.description }}</p>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endblock %}

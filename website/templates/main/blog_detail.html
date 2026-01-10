@@ -1,0 +1,36 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}{{ post.title }} - TRX{% endblock %}
+{% block meta_description %}
+Expert physiotherapy and chiropractic care at TRX Center. Specializing in TRX treatments for effective pain relief.
+Experience comprehensive care today.
+{% endblock %}
+
+{% block content %}
+<div class="page">
+    <div class="detail-container">
+        <header class="detail-header">
+            <a href="{% url 'blog_list' %}" class="back-link">← Back to Blog</a>
+            <div class="tag-row">
+                <span class="tag {{ post.tag_class }}">{{ post.tag }}</span>
+            </div>
+            <h1>{{ post.title }}</h1>
+            <div class="user-meta">
+                <small>Posted on {{ post.created_at|date:"M d, Y" }}</small>
+            </div>
+        </header>
+
+        <section class="main-image">
+            {% if post.image %}
+            <img src="{{ post.image.url }}" alt="{{ post.title }}" />
+            {% endif %}
+        </section>
+
+        <article class="content">
+            {{ post.content|striptags|linebreaks }}
+        </article>
+    </div>
+    <a href="{% url 'blog_list' %}" class="back-link">← Back to Blog</a>
+</div>
+{% endblock %}
