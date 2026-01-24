@@ -171,7 +171,6 @@ CLOUDINARY_STORAGE = {
 
 # CKEditor Upload Path (This will create an 'uploads' folder in your Cloudinary)
 CKEDITOR_UPLOAD_PATH = "uploads/"
-CKEDITOR_BASEPATH = "/static/ckeditor/ckeditor/"
 
 # CKEditor Toolbar Customization
 CKEDITOR_CONFIGS = {
