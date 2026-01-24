@@ -87,8 +87,8 @@ class Service(models.Model):
 class BlogPost(models.Model):
     title = models.CharField(max_length=200)
     slug = models.SlugField(allow_unicode=True, unique=True, blank=True)
-    tag = models.CharField(max_length=50)  # e.g., "Technology"
-    tag_class = models.CharField(max_length=20, default="tag-teal")  # for CSS colors
+    tag = models.CharField(max_length=50)
+    tag_class = models.CharField(max_length=20, default="tag-teal")
     content = RichTextUploadingField()
     image = models.ImageField(
         upload_to="blog_img/",
@@ -273,3 +273,23 @@ class CompletedRecord(Appointment):
         proxy = True
         verbose_name = "Followed-up Record"
         verbose_name_plural = "Followed-up Records"
+
+
+class SlideshowImage(models.Model):
+    image = models.ImageField(upload_to='slideshow/')
+    alt_text = models.CharField(max_length=200, blank=True, help_text="Used for SEO and screen readers")
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        # Orders by newest first
+        ordering = ['-created_at']
+        verbose_name = "Slideshow Image"
+        verbose_name_plural = "Slideshow Images"
+
+    def clean(self):
+        # Handle the limit of 5 from the model layer
+        if not self.pk and SlideshowImage.objects.count() >= 5:
+            raise ValidationError("You can only have a maximum of 5 slideshow images. Please delete an old one first.")
+
+    def __str__(self):
+        return f"Slide {self.id} - {self.created_at.strftime('%Y-%m-%d')}"

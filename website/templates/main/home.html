@@ -14,16 +14,115 @@
 <!-- Main content -->
 <div class="wrapper">
     <div class="wrapper-left">
-        <h3>Expert Physiotherapy and Chiropractic care tailored to your recovery.</h3>
-        <p>We offer a wide range of physiotherapy and chiropractic services to help you recover from injuries,
-            conditions, and other health issues. Treatments are customized to your specific needs and goals. How
-            we can help at with and complete your recovery at {% if company %} <span class="trx-span"><span>{{ company.short_name}}</span>{% endif %}.</p>
+        <h3>Advance Spine Physiotherapy & Chiropractic Care</h3>
+        <p>Your spine deserves expertise, not experimentation. {% if company %}{{company.full_name}}{% endif %} is
+            committed to delivering safe, effective and surgery-free pain relief using globally accepted physiotherapy
+            protocols.
+        <p>{% if company %}{{company.short_name}}{% endif %} 3 Phase Spine Recovery System</p>
+        <ol>
+            <li>Pain Offloading</li>
+            <li>Pain Offloading</li>
+            <li>Motor Control + Strength</li>
+        </ol>
+
+        <div class="btn-container">
+            <a href="/appointment/" class="nav-btn-link {% if request.path == '/appointment/' %}active{% endif %}">
+                Start Your Healing Journey Today <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" class="btn-icon">
+                    <path
+                        d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z">
+                    </path>
+                    <path d="M20 2v4"></path>
+                    <path d="M22 4h-4"></path>
+                    <circle cx="4" cy="20" r="2"></circle>
+                </svg>
+            </a>
+        </div>
+        <div class="social-proof">
+            <div class="proof-header">
+                <span class="happy-count">2k+ Happy Patients</span>
+                <div class="rating-stars">
+                    <svg class="star-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640">
+                        <path
+                            d="M341.5 45.1C337.4 37.1 329.1 32 320.1 32C311.1 32 302.8 37.1 298.7 45.1L225.1 189.3L65.2 214.7C56.3 216.1 48.9 222.4 46.1 231C43.3 239.6 45.6 249 51.9 255.4L166.3 369.9L141.1 529.8C139.7 538.7 143.4 547.7 150.7 553C158 558.3 167.6 559.1 175.7 555L320.1 481.6L464.4 555C472.4 559.1 482.1 558.3 489.4 553C496.7 547.7 500.4 538.8 499 529.8L473.7 369.9L588.1 255.4C594.5 249 596.7 239.6 593.9 231C591.1 222.4 583.8 216.1 574.8 214.7L415 189.3L341.5 45.1z" />
+                    </svg>
+                    <svg class="star-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640">
+                        <path
+                            d="M341.5 45.1C337.4 37.1 329.1 32 320.1 32C311.1 32 302.8 37.1 298.7 45.1L225.1 189.3L65.2 214.7C56.3 216.1 48.9 222.4 46.1 231C43.3 239.6 45.6 249 51.9 255.4L166.3 369.9L141.1 529.8C139.7 538.7 143.4 547.7 150.7 553C158 558.3 167.6 559.1 175.7 555L320.1 481.6L464.4 555C472.4 559.1 482.1 558.3 489.4 553C496.7 547.7 500.4 538.8 499 529.8L473.7 369.9L588.1 255.4C594.5 249 596.7 239.6 593.9 231C591.1 222.4 583.8 216.1 574.8 214.7L415 189.3L341.5 45.1z" />
+                    </svg>
+                    <svg class="star-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640">
+                        <path
+                            d="M341.5 45.1C337.4 37.1 329.1 32 320.1 32C311.1 32 302.8 37.1 298.7 45.1L225.1 189.3L65.2 214.7C56.3 216.1 48.9 222.4 46.1 231C43.3 239.6 45.6 249 51.9 255.4L166.3 369.9L141.1 529.8C139.7 538.7 143.4 547.7 150.7 553C158 558.3 167.6 559.1 175.7 555L320.1 481.6L464.4 555C472.4 559.1 482.1 558.3 489.4 553C496.7 547.7 500.4 538.8 499 529.8L473.7 369.9L588.1 255.4C594.5 249 596.7 239.6 593.9 231C591.1 222.4 583.8 216.1 574.8 214.7L415 189.3L341.5 45.1z" />
+                    </svg>
+                    <svg class="star-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640">
+                        <path
+                            d="M341.5 45.1C337.4 37.1 329.1 32 320.1 32C311.1 32 302.8 37.1 298.7 45.1L225.1 189.3L65.2 214.7C56.3 216.1 48.9 222.4 46.1 231C43.3 239.6 45.6 249 51.9 255.4L166.3 369.9L141.1 529.8C139.7 538.7 143.4 547.7 150.7 553C158 558.3 167.6 559.1 175.7 555L320.1 481.6L464.4 555C472.4 559.1 482.1 558.3 489.4 553C496.7 547.7 500.4 538.8 499 529.8L473.7 369.9L588.1 255.4C594.5 249 596.7 239.6 593.9 231C591.1 222.4 583.8 216.1 574.8 214.7L415 189.3L341.5 45.1z" />
+                    </svg>
+                    <svg class="star-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640">
+                        <path
+                            d="M341.5 45.1C337.4 37.1 329.1 32 320.1 32C311.1 32 302.8 37.1 298.7 45.1L225.1 189.3L65.2 214.7C56.3 216.1 48.9 222.4 46.1 231C43.3 239.6 45.6 249 51.9 255.4L166.3 369.9L141.1 529.8C139.7 538.7 143.4 547.7 150.7 553C158 558.3 167.6 559.1 175.7 555L320.1 481.6L464.4 555C472.4 559.1 482.1 558.3 489.4 553C496.7 547.7 500.4 538.8 499 529.8L473.7 369.9L588.1 255.4C594.5 249 596.7 239.6 593.9 231C591.1 222.4 583.8 216.1 574.8 214.7L415 189.3L341.5 45.1z" />
+                    </svg>
+                </div>
+            </div>
+            <div class="avatar-stack">
+                <div class="avatar-item">
+                    <img src="data:image/png;base64,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"
+                        alt="Patient" class="avatar">
+                    <div class="avatar-tooltip">
+                        <span class="p-name">Anant KC</span>
+                        <span class="p-title">Software Engineer</span>
+                    </div>
+                </div>
+                <div class="avatar-item">
+                    <img src="data:image/png;base64,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"
+                        alt="Patient" class="avatar">
+                    <div class="avatar-tooltip">
+                        <span class="p-name">Salil Kayastha</span>
+                        <span class="p-title">Platform Engineer</span>
+                    </div>
+                </div>
+                <div class="avatar-item">
+                    <img src="https://lh3.googleusercontent.com/a-/ALV-UjWiJtq4yvxdNeI-FeXFmNGcabsZNEdnlR3LMWQCifo75vqM4wv1=w72-h72-p-rp-mo-br100"
+                        alt="Patient" class="avatar">
+                    <div class="avatar-tooltip">
+                        <span class="p-name">Subhi Adhikari</span>
+                        <span class="p-title">Banker</span>
+                    </div>
+                </div>
+                <div class="avatar-item">
+                    <img src="https://lh3.googleusercontent.com/a-/ALV-UjUcpHAc8A-YpSSPulL85LfZRzJuktBjFJwhN175xnAQDrSwENMy=w72-h72-p-rp-mo-br100"
+                        alt="Patient" class="avatar">
+                    <div class="avatar-tooltip">
+                        <span class="p-name">Mahesh Shrestha</span>
+                        <span class="p-title">Business Analyst</span>
+                    </div>
+                </div>
+                <div class="avatar-item">
+                    <img src="https://lh3.googleusercontent.com/a-/ALV-UjXVxePnGnrzK6BUKUAdi9dZhLpnUHk5T3ZLDveC9W6hGraYAAAVFg=w72-h72-p-rp-mo-ba4-br100"
+                        alt="Patient" class="avatar">
+                    <div class="avatar-tooltip">
+                        <span class="p-name">Chetrai Bhandari (CRB)</span>
+                        <span class="p-title">Actor</span>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
     <div class="wrapper-right">
-        <img class="gif-section" src="{% static '/main/images/physio-therapy.gif' %}"
-            alt="TRX Physiotherapy & Chiropractic Center" title="TRX Physiotherapy & Chiropractic Center" />
+    <div class="image-slideshow">
+        {% for slide in slideshow_images %}
+            <img class="slide" 
+                 src="{{ slide.image.url }}" 
+                 alt="{{ slide.alt_text }}"
+                 style="animation-delay: {% widthratio forloop.counter0 1 4 %}s; 
+                        animation-duration: {% widthratio slideshow_images.count 1 4 %}s;">
+        {% empty %}
+            <img class="slide" src="{% static '/main/images/physio-therapy.gif' %}" style="opacity: 1;">
+        {% endfor %}
     </div>
+</div>
 </div>
 <div class="social-icons">
     <h2>Connect With Us</h2>
@@ -33,32 +132,59 @@
     <a href="mailto:trxphysiotherapy@gmail.com"><i class="fas fa-envelope"></i></a>
     <a href="https://www.tiktok.com/@trxphysio"><i class="fab fa-tiktok"></i></a>
 </div>
-
+<div class="clinic-status-box">
+    <div class="status-card">
+        <div class="status-header">
+            <i class="fas fa-clock"></i>
+            <h3>Opening Hours</h3>
+        </div>
+        <div class="status-content">
+            <div class="time-row">
+                <span class="day-label">Sunday - Friday</span>
+                <span class="time-value">07:00 AM - 07:00 PM</span>
+            </div>
+            <div class="time-row" id="sat-row">
+                <span class="day-label">Saturday</span>
+                <span class="time-value">07:00 AM - 03:00 PM</span>
+            </div>
+        </div>
+        <div class="status-indicator-bar">
+            <span id="status-dot" class="pulse-dot"></span>
+            <span id="status-text" class="status-text">CHECKING...</span>
+        </div>
+    </div>
+</div>
 <div class="main-wrapper">
-    <h2>Why Choose Us?</h2>
-    <p>{% if company %}At {{ company.full_name }}, we prioritize patient safety and well-being.{% else %}We prioritize patient safety and well-being.{% endif %}</p>
+    <h2>Why Choose {% if company %}{{ company.short_name }}{% endif %}?</h2>
+    <p>Experience Advanced Spine-Focused Physiotherapy & Chiropractic Care in Kathmandu</p>
 
     <div class="content-grid">
         <div class="side-column left-align">
             <div class="info-box">
-                <div class="icon"><i class="fa-solid fa-bandage"></i></div>
                 <div class="text-content">
-                    <h5>Expert Care</h5>
-                    <p>Personalized treatment plans for every patient.</p>
+                    <h5>Spine Specialists, Not General Treatment</h5>
+                    <p>We focus primarily on spine, neck, and nerve related conditions treating the root cause, not just
+                        symptoms.</p>
                 </div>
             </div>
             <div class="info-box">
-                <div class="icon"><i class="fa-solid fa-microscope"></i></div>
                 <div class="text-content">
-                    <h5>Modern Tech</h5>
-                    <p>Advanced diagnostic and therapy equipment.</p>
+                    <h5>Advanced Physiotherapy & Chiropractic Integration</h5>
+                    <p>A unique combination of evidence based physiotherapy and precise chiropractic care for faster,
+                        longer lasting recovery. </p>
                 </div>
             </div>
             <div class="info-box">
-                <div class="icon"><i class="fas fa-user-md"></i></div>
                 <div class="text-content">
-                    <h5>Certified Staff</h5>
-                    <p>Highly trained professionals at your service.</p>
+                    <h5>Personalized, One-to-One Care</h5>
+                    <p>Every patient receives a customized treatment plan based on detailed biomechanical and postural
+                        assessment.</p>
+                </div>
+            </div>
+            <div class="info-box">
+                <div class="text-content">
+                    <h5>Led by Experienced Spine Care Experts</h5>
+                    <p>Consultant-led sessions ensuring safety, precision, and evidence-based practice.</p>
                 </div>
             </div>
         </div>
@@ -73,30 +199,185 @@
 
         <div class="side-column right-align">
             <div class="info-box">
-                <div class="icon"><i class="fa-solid fa-person-running"></i></div>
                 <div class="text-content">
-                    <h5>Recovery Plans</h5>
-                    <p>Fast-track your health with proven methods.</p>
+                    <h5>Root-Cause & Result Oriented Approach</h5>
+                    <p>We correct spinal alignment, movement dysfunctions, and muscular imbalances not temporary pain
+                        masking. </p>
                 </div>
             </div>
             <div class="info-box">
-                <div class="icon"><i class="fa-solid fa-clock"></i></div>
                 <div class="text-content">
-                    <h5>Flexible Hours</h5>
-                    <p>Appointments that fit your busy schedule.</p>
+                    <h5>Proven Techniques & Modern Equipment</h5>
+                    <p>MET, spinal mobilization, decompression therapy, corrective exercises, and posture rehabilitation
+                        under one roof. </p>
                 </div>
             </div>
             <div class="info-box">
-                <div class="icon"><i class="fa-solid fa-credit-card"></i></div>
                 <div class="text-content">
-                    <h5>Cost Efficient</h5>
-                    <p>Affordable treatment options without compromising quality.</p>
+                    <h5>Trusted by Thousands of Patients Across Kathmandu, Nepal</h5>
+                    <p>Recognized for ethical care, honest guidance, and real clinical results.</p>
                 </div>
             </div>
         </div>
     </div>
 </div>
 </div>
+
+<section class="core-service-block">
+    <h2>Core Services</h2>
+    <div class="service-container">
+        <div class="service-image-side">
+            <img src="{% static '/main/images/physio-therapy.gif' %}" alt="Physiotherapy Core Service">
+        </div>
+        <div class="service-content-side">
+            <h4>1. Physiotherapy & Rehabilitation</h4>
+            <p class="service-desc">
+                Physiotherapy uses natural adaptation mechanisms of the body to specifically treat disorders of bodily
+                functions. At our clinic, we provide a wide range of advanced therapies designed to meet the specific
+                needs of each patient, ensuring effective recovery and overall well-being.
+            </p>
+        </div>
+    </div>
+    <div class="service-container">
+        <div class="service-image-side">
+            <img src="{% static '/main/images/physio-therapy.gif' %}" alt="Physiotherapy Core Service">
+        </div>
+        <div class="service-content-side">
+            <h4>2. Manual Therapy</h4>
+            <p class="service-desc">
+                Hands-on techniques to manipulate muscles and joints for pain relief and improved mobility.
+            </p>
+        </div>
+    </div>
+    <div class="service-container">
+        <div class="service-image-side">
+            <img src="{% static '/main/images/physio-therapy.gif' %}" alt="Physiotherapy Core Service">
+        </div>
+        <div class="service-content-side">
+            <h4>3. Structural Therapy</h4>
+            <p class="service-desc">
+                Focuses on body alignment and the structural integrity of the musculoskeletal system through
+                manipulation.
+            </p>
+        </div>
+    </div>
+    <div class="service-container">
+        <div class="service-image-side">
+            <img src="{% static '/main/images/physio-therapy.gif' %}" alt="Physiotherapy Core Service">
+        </div>
+        <div class="service-content-side">
+            <h4>4. Chiropractic Care</h4>
+            <p class="service-desc">
+                Chiropractic care is widely recognized for relieving lower back pain, especially for acute pain. Spine
+                alignment and musculoskeletal correction to improve body mechanics and relieve pain. Chiropractic
+                adjustments can help correct posture-related issues, such as forward head posture or rounded shoulders,
+                which can lead to chronic pain if not addressed. Spinal adjustments help alleviate discomfort by
+                improving spinal alignment and reducing pressure on nerves. It is effective for Back Pain, Neck Pain,
+                Headaches (Tension and Cervicogenic), Sciatica (due to herniated discs or spinal issues), Joint Pain
+                (Shoulders, Knees, and Hips), to improve overall mobility, flexibility, and joint function.
+
+            </p>
+        </div>
+    </div>
+    <div class="service-container">
+        <div class="service-image-side">
+            <img src="{% static '/main/images/physio-therapy.gif' %}" alt="Physiotherapy Core Service">
+        </div>
+        <div class="service-content-side">
+            <h4>5. Non-Surgical Spinal Decompression Therapy</h4>
+            <p class="service-desc">
+                Non-surgical spinal decompression is less risky than surgery and is a good option for patients looking
+                to avoid invasive procedures. However, it may not be as effective for severe spinal problems that
+                require surgical intervention. Decompression therapy can be used alongside chiropractic adjustments to
+                further reduce spinal pressure and realign the spine. Gentle, machine-assisted decompression for
+                relieving pressure on spinal discs, perfect for conditions like herniated or bulging discs, facet
+                Syndrome, sciatica, degenerative disc disease where Spinal decompression can reduce pressure on the
+                spine caused by worn discs as well as Post Surgical Recovery where it can be used in post-surgical
+                rehabilitation, particularly after spine surgery, to manage residual pain.
+            </p>
+        </div>
+    </div>
+    <div class="service-container">
+        <div class="service-image-side">
+            <img src="{% static '/main/images/physio-therapy.gif' %}" alt="Physiotherapy Core Service">
+        </div>
+        <div class="service-content-side">
+            <h4>6. Laser Therapy (Low-Level Laser Therapy - LLLT)</h4>
+            <p class="service-desc">
+                It uses light energy to penetrate tissues, promoting cell regeneration, reducing inflammation, and
+                relieving pain. Accelerates tissue repair and healing while providing effective pain relief. It is
+                effective for chronic pain, musculoskeletal injuries, wound healing, arthritis, soft tissue injuries,
+                and nerve regeneration.
+            </p>
+        </div>
+    </div>
+    <div class="service-container">
+        <div class="service-image-side">
+            <img src="{% static '/main/images/physio-therapy.gif' %}" alt="Physiotherapy Core Service">
+        </div>
+        <div class="service-content-side">
+            <h4>7. TECAR (Transfer of Energy Capacitive and Resistive) Therapy</h4>
+            <p class="service-desc">
+                It uses radiofrequency to stimulate tissue repair, reduce pain, and accelerate healing, which involves
+                more complex mechanisms compared to standard modalities like ultrasound or basic heat therapies. It is
+                effective for Muscle injuries, tendinitis, osteoarthritis, chronic inflammatory conditions, and
+                post-surgical rehabilitation.
+            </p>
+        </div>
+    </div>
+    <div class="service-container">
+        <div class="service-image-side">
+            <img src="{% static '/main/images/physio-therapy.gif' %}" alt="Physiotherapy Core Service">
+        </div>
+        <div class="service-content-side">
+            <h4>8. Dry Needling Therapy</h4>
+            <p class="service-desc">
+                A minimally invasive technique designed to relieve muscular pain and tightness by precisely targeting
+                trigger points—tight knots or bands in the muscles—using fine needles to release muscle tension and
+                accelerate healing. It is more anatomically based and often used by physical therapists to treat
+                musculoskeletal issues. The needles stimulate the nervous system and promote blood flow to the area,
+                which can help relieve pain and improve muscle function. There is growing support in the clinical
+                literature for its effectiveness in treating various conditions, especially muscular pain, tension
+                headaches, and myofascial pain syndrome.
+            </p>
+        </div>
+    </div>
+    <div class="service-container">
+        <div class="service-image-side">
+            <img src="{% static '/main/images/physio-therapy.gif' %}" alt="Physiotherapy Core Service">
+        </div>
+        <div class="service-content-side">
+            <h4>9. Cupping Therapy (Dry/Silicone)</h4>
+            <p class="service-desc">
+                Cupping therapy can help reduce stress and promote relaxation. Cupping therapy can be effective in
+                reducing chronic pain, including conditions like lower back pain, neck pain, and osteoarthritis.
+                Research suggests that cupping therapy can be beneficial in managing myofascial pain syndrome by
+                relieving muscle tension and improving blood flow. Dry Cupping - Good for muscle tension relief,
+                improving blood flow, and enhancing relaxation. It can also help with conditions like chronic pain,
+                headaches, and muscle soreness. Silicone Cupping - Allows for dynamic treatment (moving cupping) and can
+                provide muscle tension relief. The flexibility of the silicone cups can be beneficial for certain
+                therapeutic techniques.
+            </p>
+        </div>
+    </div>
+    <div class="service-container">
+        <div class="service-image-side">
+            <img src="{% static '/main/images/physio-therapy.gif' %}" alt="Physiotherapy Core Service">
+        </div>
+        <div class="service-content-side">
+            <h4>10. Radial Shockwave Therapy (RSWT)</h4>
+            <p class="service-desc">
+                A non-invasive treatment using acoustic waves to promote healing, especially for tendon and ligament
+                injuries. The shockwaves create microtrauma in tissues, triggering the body’s natural healing response.
+                This promotes increased blood flow, cellular repair, and collagen production, leading to faster healing
+                of the affected tissue. It is effective for treating more common soft tissue injuries, Plantar
+                Fasciitis, Tennis Elbow (Lateral Epicondylitis), Calcific
+                Shoulder Tendinitis, Myofascial Pain Syndrome, Achilles Tendinopathy, Patellar Tendinopathy (Jumper’s
+                Knee), Delayed Bone Healing/Non-Union fractures.
+            </p>
+        </div>
+    </div>
+</section>
 
 <!-- Testimonial Section -->
 <div class="testimonial-container">
