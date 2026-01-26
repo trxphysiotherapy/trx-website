@@ -17,6 +17,7 @@ from .models import (
     CompletedRecord,
     Appointment,
     SlideshowImage,
+    CoreService,
 )
 
 admin.site.register(NavBarItem)
@@ -99,3 +100,6 @@ class SlideshowImageAdmin(admin.ModelAdmin):
         return "No Image"
 
     preview_image.short_description = "Thumbnail"
+
+
+admin.site.register(CoreService)

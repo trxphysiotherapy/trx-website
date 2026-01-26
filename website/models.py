@@ -293,3 +293,15 @@ class SlideshowImage(models.Model):
 
     def __str__(self):
         return f"Slide {self.id} - {self.created_at.strftime('%Y-%m-%d')}"
+    
+
+class CoreService(models.Model):
+    title = models.CharField(max_length=200)
+    description = models.TextField()
+    image = models.ImageField(upload_to='services/')
+
+    class Meta:
+        ordering = ['id'] 
+
+    def __str__(self):
+        return self.title

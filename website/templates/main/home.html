@@ -21,7 +21,7 @@
         <p>{% if company %}{{company.short_name}}{% endif %} 3 Phase Spine Recovery System</p>
         <ol>
             <li>Pain Offloading</li>
-            <li>Pain Offloading</li>
+            <li>Correction & Mobility</li>
             <li>Motor Control + Strength</li>
         </ol>
 
@@ -225,6 +225,24 @@
 
 <section class="core-service-block">
     <h2>Core Services</h2>
+    {% for service in core_services %}
+    <div class="service-container">
+        <div class="service-image-side">
+            <img src="{{ service.image.url }}" alt="{{ service.title }}">
+        </div>
+        <div class="service-content-side">
+            <h4>{{ forloop.counter }}. {{ service.title }}</h4>
+            <p class="service-desc">
+                {{ service.description|linebreaksbr }}
+            </p>
+        </div>
+    </div>
+    {% empty %}
+    {% endfor %}
+</section>
+
+<!-- <section class="core-service-block">
+    <h2>Core Services</h2>
     <div class="service-container">
         <div class="service-image-side">
             <img src="{% static '/main/images/physio-therapy.gif' %}" alt="Physiotherapy Core Service">
@@ -377,7 +395,7 @@
             </p>
         </div>
     </div>
-</section>
+</section> -->
 
 <!-- Testimonial Section -->
 <div class="testimonial-container">

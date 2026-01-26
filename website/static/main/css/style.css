@@ -2583,7 +2583,6 @@ body.dark-mode .appointment-form textarea {
 }
 
 .service-desc {
-  font-size: 1.1rem;
   line-height: 1.7;
   color: var(--text-color);
 }
@@ -2607,7 +2606,7 @@ body.dark-mode .appointment-form textarea {
     left: 0;
     width: 100%;
     height: 100%;
-    object-fit: contain;
+    object-fit: cover;
     background-color: #ffffff; 
     z-index: 1;
     opacity: 0;
@@ -2940,10 +2939,6 @@ body.dark-mode .appointment-form textarea {
   }
 
   .clinic-status-box {
-    display: none;
-  }
-
-  .clinic-status-box {
     position: fixed;
     bottom: 20px;
     right: 16px;
@@ -2969,6 +2964,22 @@ body.dark-mode .appointment-form textarea {
     transition: all 0.3s ease, padding 0.3s ease, opacity 0.2s ease;
   }
 
+  .status-indicator-bar {
+    max-height: none !important;
+    opacity: 1 !important;
+    padding: 12px 15px !important;
+    display: flex !important;
+  }
+  .status-card:not(.expanded) .status-content {
+    max-height: 0;
+    padding: 0;
+    opacity: 0;
+  }
+
+  #status-text {
+    color: #71C028;
+    font-weight: 800;
+  }
   .status-card.expanded .status-content {
     max-height: 200px;
     padding: 15px;
@@ -3147,4 +3158,3 @@ body.dark-mode .appointment-form textarea {
     width: 100%;
     height: 450px;
     border: none;
-}

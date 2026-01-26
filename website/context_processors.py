@@ -12,7 +12,8 @@ from .models import (
     TeamMember,
     Company,
     SEOTitleAndMetaDescription,
-    SlideshowImage
+    SlideshowImage,
+    CoreService,
 )
 
 
@@ -66,7 +67,8 @@ def site_settings(request):
             "service": service,
             "blog": blog,
             "gallery": gallery,
-            "slideshow_images": slideshow_images
+            "slideshow_images": slideshow_images,
+            "core_services": CoreService.objects.all(),
 
         }
     except Exception:
