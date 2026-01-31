@@ -2,7 +2,7 @@ from django.contrib import messages
 from django.core.paginator import Paginator
 from django.shortcuts import get_object_or_404, redirect, render
 
-from .models import Appointment, BlogPost
+from .models import Appointment, BlogPost, SlideshowImage
 
 
 def home(request):
@@ -64,3 +64,8 @@ def book_appointment(request):
         return redirect('appointment')
 
     return render(request, 'main/appointment.html')
+
+
+def home_view(request):
+    slides = SlideshowImage.objects.all() # Will return max 5 due to model clean()
+    return render(request, 'index.html', {'slides': slides})

@@ -1,0 +1,10 @@
+.cke_reset img, 
+.django-ckeditor-widget img,
+.cke_editable img {
+    max-width: 100% !important;
+    height: auto !important;
+}
+
+.django-ckeditor-widget {
+    width: 100% !important;
+}

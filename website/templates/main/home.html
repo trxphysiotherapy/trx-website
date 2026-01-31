@@ -14,16 +14,115 @@
 <!-- Main content -->
 <div class="wrapper">
     <div class="wrapper-left">
-        <h3>Expert Physiotherapy and Chiropractic care tailored to your recovery.</h3>
-        <p>We offer a wide range of physiotherapy and chiropractic services to help you recover from injuries,
-            conditions, and other health issues. Treatments are customized to your specific needs and goals. How
-            we can help at with and complete your recovery at {% if company %} <span class="trx-span"><span>{{ company.short_name}}</span>{% endif %}.</p>
+        <h3>Advance Spine Physiotherapy & Chiropractic Care</h3>
+        <p>Your spine deserves expertise, not experimentation. {% if company %}{{company.full_name}}{% endif %} is
+            committed to delivering safe, effective and surgery-free pain relief using globally accepted physiotherapy
+            protocols.
+        <p>{% if company %}{{company.short_name}}{% endif %} 3 Phase Spine Recovery System</p>
+        <ol>
+            <li>Pain Offloading</li>
+            <li>Correction & Mobility</li>
+            <li>Motor Control + Strength</li>
+        </ol>
+
+        <div class="btn-container">
+            <a href="/appointment/" class="nav-btn-link {% if request.path == '/appointment/' %}active{% endif %}">
+                Start Your Healing Journey Today <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" class="btn-icon">
+                    <path
+                        d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z">
+                    </path>
+                    <path d="M20 2v4"></path>
+                    <path d="M22 4h-4"></path>
+                    <circle cx="4" cy="20" r="2"></circle>
+                </svg>
+            </a>
+        </div>
+        <div class="social-proof">
+            <div class="proof-header">
+                <span class="happy-count">2k+ Happy Patients</span>
+                <div class="rating-stars">
+                    <svg class="star-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640">
+                        <path
+                            d="M341.5 45.1C337.4 37.1 329.1 32 320.1 32C311.1 32 302.8 37.1 298.7 45.1L225.1 189.3L65.2 214.7C56.3 216.1 48.9 222.4 46.1 231C43.3 239.6 45.6 249 51.9 255.4L166.3 369.9L141.1 529.8C139.7 538.7 143.4 547.7 150.7 553C158 558.3 167.6 559.1 175.7 555L320.1 481.6L464.4 555C472.4 559.1 482.1 558.3 489.4 553C496.7 547.7 500.4 538.8 499 529.8L473.7 369.9L588.1 255.4C594.5 249 596.7 239.6 593.9 231C591.1 222.4 583.8 216.1 574.8 214.7L415 189.3L341.5 45.1z" />
+                    </svg>
+                    <svg class="star-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640">
+                        <path
+                            d="M341.5 45.1C337.4 37.1 329.1 32 320.1 32C311.1 32 302.8 37.1 298.7 45.1L225.1 189.3L65.2 214.7C56.3 216.1 48.9 222.4 46.1 231C43.3 239.6 45.6 249 51.9 255.4L166.3 369.9L141.1 529.8C139.7 538.7 143.4 547.7 150.7 553C158 558.3 167.6 559.1 175.7 555L320.1 481.6L464.4 555C472.4 559.1 482.1 558.3 489.4 553C496.7 547.7 500.4 538.8 499 529.8L473.7 369.9L588.1 255.4C594.5 249 596.7 239.6 593.9 231C591.1 222.4 583.8 216.1 574.8 214.7L415 189.3L341.5 45.1z" />
+                    </svg>
+                    <svg class="star-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640">
+                        <path
+                            d="M341.5 45.1C337.4 37.1 329.1 32 320.1 32C311.1 32 302.8 37.1 298.7 45.1L225.1 189.3L65.2 214.7C56.3 216.1 48.9 222.4 46.1 231C43.3 239.6 45.6 249 51.9 255.4L166.3 369.9L141.1 529.8C139.7 538.7 143.4 547.7 150.7 553C158 558.3 167.6 559.1 175.7 555L320.1 481.6L464.4 555C472.4 559.1 482.1 558.3 489.4 553C496.7 547.7 500.4 538.8 499 529.8L473.7 369.9L588.1 255.4C594.5 249 596.7 239.6 593.9 231C591.1 222.4 583.8 216.1 574.8 214.7L415 189.3L341.5 45.1z" />
+                    </svg>
+                    <svg class="star-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640">
+                        <path
+                            d="M341.5 45.1C337.4 37.1 329.1 32 320.1 32C311.1 32 302.8 37.1 298.7 45.1L225.1 189.3L65.2 214.7C56.3 216.1 48.9 222.4 46.1 231C43.3 239.6 45.6 249 51.9 255.4L166.3 369.9L141.1 529.8C139.7 538.7 143.4 547.7 150.7 553C158 558.3 167.6 559.1 175.7 555L320.1 481.6L464.4 555C472.4 559.1 482.1 558.3 489.4 553C496.7 547.7 500.4 538.8 499 529.8L473.7 369.9L588.1 255.4C594.5 249 596.7 239.6 593.9 231C591.1 222.4 583.8 216.1 574.8 214.7L415 189.3L341.5 45.1z" />
+                    </svg>
+                    <svg class="star-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640">
+                        <path
+                            d="M341.5 45.1C337.4 37.1 329.1 32 320.1 32C311.1 32 302.8 37.1 298.7 45.1L225.1 189.3L65.2 214.7C56.3 216.1 48.9 222.4 46.1 231C43.3 239.6 45.6 249 51.9 255.4L166.3 369.9L141.1 529.8C139.7 538.7 143.4 547.7 150.7 553C158 558.3 167.6 559.1 175.7 555L320.1 481.6L464.4 555C472.4 559.1 482.1 558.3 489.4 553C496.7 547.7 500.4 538.8 499 529.8L473.7 369.9L588.1 255.4C594.5 249 596.7 239.6 593.9 231C591.1 222.4 583.8 216.1 574.8 214.7L415 189.3L341.5 45.1z" />
+                    </svg>
+                </div>
+            </div>
+            <div class="avatar-stack">
+                <div class="avatar-item">
+                    <img src="https://lh3.googleusercontent.com/a-/ALV-UjWQWNU-EO7WeAYh0bdE_FMKE7VQXo3eqBv9jptbQeX_7PMcE8bd=w36-h36-p-rp-mo-br100"
+                        alt="Patient" class="avatar">
+                    <div class="avatar-tooltip">
+                        <span class="p-name">Anmol Jamar Kattel</span>
+                        <span class="p-title">Doctor</span>
+                    </div>
+                </div>
+                <div class="avatar-item">
+                    <img src="https://lh3.googleusercontent.com/a-/ALV-UjVR6StqK06maJ6kloCOrbc5sBBlS8JgNsDlA0rBXOLj5bpKcaZe=w36-h36-p-rp-mo-br100"
+                        alt="Patient" class="avatar">
+                    <div class="avatar-tooltip">
+                        <span class="p-name">Tika Nidhi Lohani</span>
+                        <span class="p-title">CEO/ NEPSE Board Director</span>
+                    </div>
+                </div>
+                <div class="avatar-item">
+                    <img src="https://lh3.googleusercontent.com/a-/ALV-UjWiJtq4yvxdNeI-FeXFmNGcabsZNEdnlR3LMWQCifo75vqM4wv1=w72-h72-p-rp-mo-br100"
+                        alt="Patient" class="avatar">
+                    <div class="avatar-tooltip">
+                        <span class="p-name">Subhi Adhikari</span>
+                        <span class="p-title">Pharmacist</span>
+                    </div>
+                </div>
+                <div class="avatar-item">
+                    <img src="https://lh3.googleusercontent.com/a-/ALV-UjUcpHAc8A-YpSSPulL85LfZRzJuktBjFJwhN175xnAQDrSwENMy=w72-h72-p-rp-mo-br100"
+                        alt="Patient" class="avatar">
+                    <div class="avatar-tooltip">
+                        <span class="p-name">Mahesh Shrestha</span>
+                        <span class="p-title">Chief Coach Karate</span>
+                    </div>
+                </div>
+                <div class="avatar-item">
+                    <img src="https://lh3.googleusercontent.com/a-/ALV-UjXVxePnGnrzK6BUKUAdi9dZhLpnUHk5T3ZLDveC9W6hGraYAAAVFg=w72-h72-p-rp-mo-ba4-br100"
+                        alt="Patient" class="avatar">
+                    <div class="avatar-tooltip">
+                        <span class="p-name">Chetrai Bhandari (CRB)</span>
+                        <span class="p-title">IT Businessman</span>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
     <div class="wrapper-right">
-        <img class="gif-section" src="{% static '/main/images/physio-therapy.gif' %}"
-            alt="TRX Physiotherapy & Chiropractic Center" title="TRX Physiotherapy & Chiropractic Center" />
+    <div class="image-slideshow">
+        {% for slide in slideshow_images %}
+            <img class="slide" 
+                 src="{{ slide.image.url }}" 
+                 alt="{{ slide.alt_text }}"
+                 style="animation-delay: {% widthratio forloop.counter0 1 4 %}s; 
+                        animation-duration: {% widthratio slideshow_images.count 1 4 %}s;">
+        {% empty %}
+            <img class="slide" src="{% static '/main/images/physio-therapy.gif' %}" style="opacity: 1;">
+        {% endfor %}
     </div>
+</div>
 </div>
 <div class="social-icons">
     <h2>Connect With Us</h2>
@@ -33,32 +132,59 @@
     <a href="mailto:trxphysiotherapy@gmail.com"><i class="fas fa-envelope"></i></a>
     <a href="https://www.tiktok.com/@trxphysio"><i class="fab fa-tiktok"></i></a>
 </div>
-
+<div class="clinic-status-box">
+    <div class="status-card">
+        <div class="status-header">
+            <i class="fas fa-clock"></i>
+            <h3>Opening Hours</h3>
+        </div>
+        <div class="status-content">
+            <div class="time-row">
+                <span class="day-label">Sunday - Friday</span>
+                <span class="time-value">07:00 AM - 07:00 PM</span>
+            </div>
+            <div class="time-row" id="sat-row">
+                <span class="day-label">Saturday</span>
+                <span class="time-value">07:00 AM - 03:00 PM</span>
+            </div>
+        </div>
+        <div class="status-indicator-bar">
+            <span id="status-dot" class="pulse-dot"></span>
+            <span id="status-text" class="status-text">CHECKING...</span>
+        </div>
+    </div>
+</div>
 <div class="main-wrapper">
-    <h2>Why Choose Us?</h2>
-    <p>{% if company %}At {{ company.full_name }}, we prioritize patient safety and well-being.{% else %}We prioritize patient safety and well-being.{% endif %}</p>
+    <h2>Why Choose {% if company %}{{ company.short_name }}{% endif %}?</h2>
+    <p>Experience Advanced Spine-Focused Physiotherapy & Chiropractic Care in Kathmandu</p>
 
     <div class="content-grid">
         <div class="side-column left-align">
             <div class="info-box">
-                <div class="icon"><i class="fa-solid fa-bandage"></i></div>
                 <div class="text-content">
-                    <h5>Expert Care</h5>
-                    <p>Personalized treatment plans for every patient.</p>
+                    <h5>Spine Specialists, Not General Treatment</h5>
+                    <p>We focus primarily on spine, neck, and nerve related conditions treating the root cause, not just
+                        symptoms.</p>
                 </div>
             </div>
             <div class="info-box">
-                <div class="icon"><i class="fa-solid fa-microscope"></i></div>
                 <div class="text-content">
-                    <h5>Modern Tech</h5>
-                    <p>Advanced diagnostic and therapy equipment.</p>
+                    <h5>Advanced Physiotherapy & Chiropractic Integration</h5>
+                    <p>A unique combination of evidence based physiotherapy and precise chiropractic care for faster,
+                        longer lasting recovery. </p>
                 </div>
             </div>
             <div class="info-box">
-                <div class="icon"><i class="fas fa-user-md"></i></div>
                 <div class="text-content">
-                    <h5>Certified Staff</h5>
-                    <p>Highly trained professionals at your service.</p>
+                    <h5>Personalized, One-to-One Care</h5>
+                    <p>Every patient receives a customized treatment plan based on detailed biomechanical and postural
+                        assessment.</p>
+                </div>
+            </div>
+            <div class="info-box">
+                <div class="text-content">
+                    <h5>Led by Experienced Spine Care Experts</h5>
+                    <p>Consultant-led sessions ensuring safety, precision, and evidence-based practice.</p>
                 </div>
             </div>
         </div>
@@ -73,30 +199,203 @@
 
         <div class="side-column right-align">
             <div class="info-box">
-                <div class="icon"><i class="fa-solid fa-person-running"></i></div>
                 <div class="text-content">
-                    <h5>Recovery Plans</h5>
-                    <p>Fast-track your health with proven methods.</p>
+                    <h5>Root-Cause & Result Oriented Approach</h5>
+                    <p>We correct spinal alignment, movement dysfunctions, and muscular imbalances not temporary pain
+                        masking. </p>
                 </div>
             </div>
             <div class="info-box">
-                <div class="icon"><i class="fa-solid fa-clock"></i></div>
                 <div class="text-content">
-                    <h5>Flexible Hours</h5>
-                    <p>Appointments that fit your busy schedule.</p>
+                    <h5>Proven Techniques & Modern Equipment</h5>
+                    <p>MET, spinal mobilization, decompression therapy, corrective exercises, and posture rehabilitation
+                        under one roof. </p>
                 </div>
             </div>
             <div class="info-box">
-                <div class="icon"><i class="fa-solid fa-credit-card"></i></div>
                 <div class="text-content">
-                    <h5>Cost Efficient</h5>
-                    <p>Affordable treatment options without compromising quality.</p>
+                    <h5>Trusted by Thousands of Patients Across Kathmandu, Nepal</h5>
+                    <p>Recognized for ethical care, honest guidance, and real clinical results.</p>
                 </div>
             </div>
         </div>
     </div>
 </div>
 </div>
+
+<section class="core-service-block">
+    <h2>Core Services</h2>
+    {% for service in core_services %}
+    <div class="service-container">
+        <div class="service-image-side">
+            <img src="{{ service.image.url }}" alt="{{ service.title }}">
+        </div>
+        <div class="service-content-side">
+            <h4>{{ forloop.counter }}. {{ service.title }}</h4>
+            <p class="service-desc">
+                {{ service.description|linebreaksbr }}
+            </p>
+        </div>
+    </div>
+    {% empty %}
+    {% endfor %}
+</section>
+
+<!-- <section class="core-service-block">
+    <h2>Core Services</h2>
+    <div class="service-container">
+        <div class="service-image-side">
+            <img src="{% static '/main/images/physio-therapy.gif' %}" alt="Physiotherapy Core Service">
+        </div>
+        <div class="service-content-side">
+            <h4>1. Physiotherapy & Rehabilitation</h4>
+            <p class="service-desc">
+                Physiotherapy uses natural adaptation mechanisms of the body to specifically treat disorders of bodily
+                functions. At our clinic, we provide a wide range of advanced therapies designed to meet the specific
+                needs of each patient, ensuring effective recovery and overall well-being.
+            </p>
+        </div>
+    </div>
+    <div class="service-container">
+        <div class="service-image-side">
+            <img src="{% static '/main/images/physio-therapy.gif' %}" alt="Physiotherapy Core Service">
+        </div>
+        <div class="service-content-side">
+            <h4>2. Manual Therapy</h4>
+            <p class="service-desc">
+                Hands-on techniques to manipulate muscles and joints for pain relief and improved mobility.
+            </p>
+        </div>
+    </div>
+    <div class="service-container">
+        <div class="service-image-side">
+            <img src="{% static '/main/images/physio-therapy.gif' %}" alt="Physiotherapy Core Service">
+        </div>
+        <div class="service-content-side">
+            <h4>3. Structural Therapy</h4>
+            <p class="service-desc">
+                Focuses on body alignment and the structural integrity of the musculoskeletal system through
+                manipulation.
+            </p>
+        </div>
+    </div>
+    <div class="service-container">
+        <div class="service-image-side">
+            <img src="{% static '/main/images/physio-therapy.gif' %}" alt="Physiotherapy Core Service">
+        </div>
+        <div class="service-content-side">
+            <h4>4. Chiropractic Care</h4>
+            <p class="service-desc">
+                Chiropractic care is widely recognized for relieving lower back pain, especially for acute pain. Spine
+                alignment and musculoskeletal correction to improve body mechanics and relieve pain. Chiropractic
+                adjustments can help correct posture-related issues, such as forward head posture or rounded shoulders,
+                which can lead to chronic pain if not addressed. Spinal adjustments help alleviate discomfort by
+                improving spinal alignment and reducing pressure on nerves. It is effective for Back Pain, Neck Pain,
+                Headaches (Tension and Cervicogenic), Sciatica (due to herniated discs or spinal issues), Joint Pain
+                (Shoulders, Knees, and Hips), to improve overall mobility, flexibility, and joint function.
+
+            </p>
+        </div>
+    </div>
+    <div class="service-container">
+        <div class="service-image-side">
+            <img src="{% static '/main/images/physio-therapy.gif' %}" alt="Physiotherapy Core Service">
+        </div>
+        <div class="service-content-side">
+            <h4>5. Non-Surgical Spinal Decompression Therapy</h4>
+            <p class="service-desc">
+                Non-surgical spinal decompression is less risky than surgery and is a good option for patients looking
+                to avoid invasive procedures. However, it may not be as effective for severe spinal problems that
+                require surgical intervention. Decompression therapy can be used alongside chiropractic adjustments to
+                further reduce spinal pressure and realign the spine. Gentle, machine-assisted decompression for
+                relieving pressure on spinal discs, perfect for conditions like herniated or bulging discs, facet
+                Syndrome, sciatica, degenerative disc disease where Spinal decompression can reduce pressure on the
+                spine caused by worn discs as well as Post Surgical Recovery where it can be used in post-surgical
+                rehabilitation, particularly after spine surgery, to manage residual pain.
+            </p>
+        </div>
+    </div>
+    <div class="service-container">
+        <div class="service-image-side">
+            <img src="{% static '/main/images/physio-therapy.gif' %}" alt="Physiotherapy Core Service">
+        </div>
+        <div class="service-content-side">
+            <h4>6. Laser Therapy (Low-Level Laser Therapy - LLLT)</h4>
+            <p class="service-desc">
+                It uses light energy to penetrate tissues, promoting cell regeneration, reducing inflammation, and
+                relieving pain. Accelerates tissue repair and healing while providing effective pain relief. It is
+                effective for chronic pain, musculoskeletal injuries, wound healing, arthritis, soft tissue injuries,
+                and nerve regeneration.
+            </p>
+        </div>
+    </div>
+    <div class="service-container">
+        <div class="service-image-side">
+            <img src="{% static '/main/images/physio-therapy.gif' %}" alt="Physiotherapy Core Service">
+        </div>
+        <div class="service-content-side">
+            <h4>7. TECAR (Transfer of Energy Capacitive and Resistive) Therapy</h4>
+            <p class="service-desc">
+                It uses radiofrequency to stimulate tissue repair, reduce pain, and accelerate healing, which involves
+                more complex mechanisms compared to standard modalities like ultrasound or basic heat therapies. It is
+                effective for Muscle injuries, tendinitis, osteoarthritis, chronic inflammatory conditions, and
+                post-surgical rehabilitation.
+            </p>
+        </div>
+    </div>
+    <div class="service-container">
+        <div class="service-image-side">
+            <img src="{% static '/main/images/physio-therapy.gif' %}" alt="Physiotherapy Core Service">
+        </div>
+        <div class="service-content-side">
+            <h4>8. Dry Needling Therapy</h4>
+            <p class="service-desc">
+                A minimally invasive technique designed to relieve muscular pain and tightness by precisely targeting
+                trigger points—tight knots or bands in the muscles—using fine needles to release muscle tension and
+                accelerate healing. It is more anatomically based and often used by physical therapists to treat
+                musculoskeletal issues. The needles stimulate the nervous system and promote blood flow to the area,
+                which can help relieve pain and improve muscle function. There is growing support in the clinical
+                literature for its effectiveness in treating various conditions, especially muscular pain, tension
+                headaches, and myofascial pain syndrome.
+            </p>
+        </div>
+    </div>
+    <div class="service-container">
+        <div class="service-image-side">
+            <img src="{% static '/main/images/physio-therapy.gif' %}" alt="Physiotherapy Core Service">
+        </div>
+        <div class="service-content-side">
+            <h4>9. Cupping Therapy (Dry/Silicone)</h4>
+            <p class="service-desc">
+                Cupping therapy can help reduce stress and promote relaxation. Cupping therapy can be effective in
+                reducing chronic pain, including conditions like lower back pain, neck pain, and osteoarthritis.
+                Research suggests that cupping therapy can be beneficial in managing myofascial pain syndrome by
+                relieving muscle tension and improving blood flow. Dry Cupping - Good for muscle tension relief,
+                improving blood flow, and enhancing relaxation. It can also help with conditions like chronic pain,
+                headaches, and muscle soreness. Silicone Cupping - Allows for dynamic treatment (moving cupping) and can
+                provide muscle tension relief. The flexibility of the silicone cups can be beneficial for certain
+                therapeutic techniques.
+            </p>
+        </div>
+    </div>
+    <div class="service-container">
+        <div class="service-image-side">
+            <img src="{% static '/main/images/physio-therapy.gif' %}" alt="Physiotherapy Core Service">
+        </div>
+        <div class="service-content-side">
+            <h4>10. Radial Shockwave Therapy (RSWT)</h4>
+            <p class="service-desc">
+                A non-invasive treatment using acoustic waves to promote healing, especially for tendon and ligament
+                injuries. The shockwaves create microtrauma in tissues, triggering the body’s natural healing response.
+                This promotes increased blood flow, cellular repair, and collagen production, leading to faster healing
+                of the affected tissue. It is effective for treating more common soft tissue injuries, Plantar
+                Fasciitis, Tennis Elbow (Lateral Epicondylitis), Calcific
+                Shoulder Tendinitis, Myofascial Pain Syndrome, Achilles Tendinopathy, Patellar Tendinopathy (Jumper’s
+                Knee), Delayed Bone Healing/Non-Union fractures.
+            </p>
+        </div>
+    </div>
+</section> -->
 
 <!-- Testimonial Section -->
 <div class="testimonial-container">

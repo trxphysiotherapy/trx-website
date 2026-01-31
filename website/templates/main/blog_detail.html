@@ -21,14 +21,16 @@ Experience comprehensive care today.
             </div>
         </header>
 
+        {% if post.image %}
         <section class="main-image">
-            {% if post.image %}
             <img src="{{ post.image.url }}" alt="{{ post.title }}" />
-            {% endif %}
         </section>
+        {% endif %}
 
-        <article class="content">
-            {{ post.content|striptags|linebreaks }}
+        <article class="content blog-content">
+            {% autoescape off %}
+            {{ post.content }}
+            {% endautoescape %}
         </article>
     </div>
     <a href="{% url 'blog_list' %}" class="back-link">← Back to Blog</a>

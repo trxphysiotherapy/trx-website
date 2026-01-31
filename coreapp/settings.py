@@ -177,12 +177,22 @@ CKEDITOR_CONFIGS = {
     'default': {
         'toolbar': 'Custom',
         'toolbar_Custom': [
-            ['Bold', 'Italic', 'Underline'],
-            ['NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-', 'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock'],
-            ['Link', 'Unlink'],
-            ['RemoveFormat', 'Source', 'Image'],
+            ['Format', 'Bold', 'Italic', 'Underline', 'Strike'],
+            ['NumberedList', 'BulletedList', '-', 'Outdent', 'Indent'],
+            ['Link', 'Unlink', 'Anchor'],
+            ['Image', 'Table', 'HorizontalRule', 'SpecialChar'],
+            ['TextColor', 'BGColor'],
+            ['JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock'],
+            ['RemoveFormat', 'Source'],
+            ['Blockquote', 'CodeSnippet'],
         ],
-        'width': 'auto',
-        'extraPlugins': ','.join(['codesnippet', 'uploadimage']),
+        'height': 500,
+        'width': '100%',
+        'contentsCss': ['/static/main/css/ckeditor_iframe.css'],
+        'extraPlugins': ','.join([
+            'codesnippet',
+            'uploadimage',
+            'image2',
+        ]),
     },
 }

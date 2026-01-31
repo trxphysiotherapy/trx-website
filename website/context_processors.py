@@ -11,7 +11,9 @@ from .models import (
     VideoContent,
     TeamMember,
     Company,
-    SEOTitleAndMetaDescription
+    SEOTitleAndMetaDescription,
+    SlideshowImage,
+    CoreService,
 )
 
 
@@ -43,7 +45,10 @@ def site_settings(request):
         service = SEOTitleAndMetaDescription.objects.filter(page_type='service').first()
         blog = SEOTitleAndMetaDescription.objects.filter(page_type='blog').first()
         gallery = SEOTitleAndMetaDescription.objects.filter(page_type='gallery').first()
-    
+
+        # Slider Image
+        slideshow_images = SlideshowImage.objects.all()
+
         return {
             "site_settings": NavBarItem.objects.first(),
             "location": Location.objects.first(),
@@ -62,6 +67,8 @@ def site_settings(request):
             "service": service,
             "blog": blog,
             "gallery": gallery,
+            "slideshow_images": slideshow_images,
+            "core_services": CoreService.objects.all(),
 
         }
     except Exception:
@@ -82,5 +89,6 @@ def site_settings(request):
             "service": None,
             "blog": None,
             "gallery": None,
+            "slideshow_images": None
             
         }
